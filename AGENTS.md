@@ -14,11 +14,11 @@
 - **CSS**: BEM methodology. See `.cursor/rules/conventions.mdc`.
 - **Imports**: Absolute imports from root. SHARED → FEATURES → APP dependency flow.
 - **Types**: TypeScript strict mode enabled. Use explicit types, avoid `any`.
-- **Error Handling**: Use try-catch blocks, TypeScript for type safety, ESLint for code quality.
+- **Error Handling**: Use try-catch blocks, TypeScript for type safety, and ESLint for code quality.
 
 ## Rules & Integrity
 
 - **Cursor Rules**: STRICTLY follow `.cursor/rules/` (`conventions.mdc`, `objectives.mdc`, `product.mdc`, `structure.mdc`, `tech-stack.mdc`).
-- **.opencode Agents**: Use `documenter.md` for daily documentation, `reviewer.md` for code reviews.
+- **.opencode Agents**: Use `documenter.md` for daily documentation, `reviewer.md` for code reviews and `assistant.md` for help with code.
 - **QA**: TypeScript Strict Mode, ESLint, Vitest, ARIA attributes for a11y.
 - **Principles**: SOLID, Clean Code, DRY.
