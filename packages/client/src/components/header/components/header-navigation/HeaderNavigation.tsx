@@ -1,10 +1,12 @@
-import HeaderNavigationDefault from "./components/header-navigation-default/HeaderNavigationDefault";
-import { NAV_ARIA_LABEL_TEXT } from "./data/headerNavigationData";
+import React from "react";
+import HeaderNavigationCompact from "./components/header-navigation-compact/HeaderNavigationCompact";
+import HeaderNavigationDesktop from "./components/header-navigation-desktop/HeaderNavigationDesktop";
 
-const HeaderNavigation = () => {
+const HeaderNavigation = (): React.ReactElement => {
    return (
-      <div className="header__navigation order-1 lg:order-2 relative" aria-label={NAV_ARIA_LABEL_TEXT}>
-         <HeaderNavigationDefault />
+      <div className="header-navigation lg:order-2">
+         <HeaderNavigationDesktop />
+         <HeaderNavigationCompact />
       </div>
    );
 };
