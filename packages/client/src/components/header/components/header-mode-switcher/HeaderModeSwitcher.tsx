@@ -1,11 +1,11 @@
+import React from "react";
 import { useAnimatedToggle } from "../../../../utils/hooks/useAnimatedToggle/useAnimatedToggle";
 import { useThemeContext } from "../../../../utils/hooks/useThemeContext/useThemeContext";
 import { BUTTON_ARIA_LABEL_TEXT, DARK_MODE_ALT_TEXT, LIGHT_MODE_ALT_TEXT } from "./data/headerModeSwitcherData";
 import "./styles/toggle-mode-animation.css";
 
-const HeaderModeSwitcher = () => {
+const HeaderModeSwitcher = (): React.ReactElement => {
    const { theme, toggleTheme } = useThemeContext();
-
    const { handlePress, isAnimating } = useAnimatedToggle(toggleTheme);
 
    return (
