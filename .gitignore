@@ -11,6 +11,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+docs/daily-docs
 
 # BUILD OUTPUTS & DISTRIBUTION
 dist

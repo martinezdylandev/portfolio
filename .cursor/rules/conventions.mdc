@@ -1,3 +1,7 @@
+---
+alwaysApply: true
+---
+
 # Project Conventions
 
 These rules establish consistent conventions for CSS classes, HTML IDs, ARIA attributes, and file structure to ensure code clarity, modularity, and accessibility.

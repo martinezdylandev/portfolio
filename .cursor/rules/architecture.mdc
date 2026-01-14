@@ -1,3 +1,7 @@
+---
+alwaysApply: true
+---
+
 # Project Architecture
 
 This document outlines the overall project architecture: tech stack, folder structure, conceptual labels, domain separation and naming conventions.
