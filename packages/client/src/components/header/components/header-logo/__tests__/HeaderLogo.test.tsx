@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import HeaderLogo from "../HeaderLogo";
-import { LOGO_CONTAINER_ARIA_LABEL, LOGO_IMAGE_ALT_TEXT, LOGO_TITLE_TEXT } from "../data/headerLogoConstants";
-import { setupLightMode, resetModes } from "./test-utils/test-utils";
 import userEvent from "@testing-library/user-event";
+import HeaderLogo from "../HeaderLogo";
+import { LOGO_IMAGE_ALT_TEXT, LOGO_TITLE_TEXT } from "../data/headerLogoData";
+import { resetModes, setupLightMode } from "./test-utils/test-utils";
 
 describe("HeaderLogo Component tests", () => {
    beforeAll(() => {
