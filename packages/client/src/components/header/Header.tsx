@@ -13,7 +13,7 @@ const Header = (): React.ReactElement => {
             header
             fixed
             w-full
-            z-[9999] 
+            z-9999 
             bg-page
             transition-transform duration-600 ease-in-out
             ${isVisible ? "transform-none" : "-translate-y-full"}
