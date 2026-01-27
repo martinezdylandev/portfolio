@@ -4,7 +4,7 @@ import HeaderNavigationDesktop from "./components/header-navigation-desktop/Head
 
 const HeaderNavigation = (): React.ReactElement => {
    return (
-      <div className="header-navigation lg:order-2">
+      <div className="header-navigation md:order-2">
          <HeaderNavigationDesktop />
          <HeaderNavigationCompact />
       </div>

@@ -10,7 +10,7 @@ const HeaderNavigationCompact = (): React.ReactElement => {
    const { isNavigationMenuOpen, handleClick, navRef, buttonRef } = useCompactNavigationMenu();
 
    return (
-      <div className="lg:hidden relative">
+      <div className="md:hidden relative">
          <button ref={buttonRef} className="header-navigation-compact__menu-button w-10 h-10 flex items-center justify-center" onClick={handleClick} aria-label="Open navigation menu" aria-expanded={isNavigationMenuOpen} aria-controls="header-navigation-menu">
             <img src={theme === "light" ? "/header/hamburguer_icon_light_mode.svg" : "/header/hamburguer_icon_dark_mode.svg"} className={`header-navigation-compact__menu-icon cursor-pointer w-6 h-6 transition-transform duration-100 ease-in-out ${isNavigationMenuOpen ? "rotate-90" : "rotate-0"}`} alt="Navigation menu icon" />
          </button>
