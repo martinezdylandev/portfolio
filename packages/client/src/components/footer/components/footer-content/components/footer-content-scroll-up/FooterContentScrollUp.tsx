@@ -6,9 +6,9 @@ const FooterContentScrollUp = () => {
    const { theme } = useThemeContext();
 
    return (
-      <div className="footer-content__scroll-up justify-self-center py-20" aria-label={FOOTER_SCROLL_UP_ARIA_LABEL}>
+      <div className="footer-content__scroll-up order-3 md:justify-self-center md:py-20" aria-label={FOOTER_SCROLL_UP_ARIA_LABEL}>
          <a href="#top" onClick={scrollToTop} className="footer-content__scroll-up-link flex gap-2 group">
-            <span className="footer-content__scroll-up-text relative font-hanken-grotesk text-xl font-bold text-heading">
+            <span className="footer-content__scroll-up-text hidden md:block relative font-hanken-grotesk text-xl font-bold text-heading">
                {FOOTER_SCROLL_UP_TEXT}
                <span className="footer-content__scroll-up-text-underline absolute left-0 bottom-0 h-[1px] bg-current w-0 group-hover:w-full transition-all duration-300"></span>
             </span>
