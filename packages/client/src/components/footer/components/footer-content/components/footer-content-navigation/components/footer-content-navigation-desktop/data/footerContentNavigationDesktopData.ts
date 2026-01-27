@@ -1,0 +1,3 @@
+const FOOTER_CONTENT_NAVIGATION_DESKTOP_ARIA_LABEL: string = "Footer content navigation desktop";
+
+export { FOOTER_CONTENT_NAVIGATION_DESKTOP_ARIA_LABEL };
