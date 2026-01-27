@@ -9,7 +9,7 @@ const HeaderLogo = (): React.ReactElement => {
    const { handleMouseEnter, handleMouseLeave, imageAnimation, imageTransition, titleAnimation, titleTransition } = useHeaderLogoAnimations();
 
    return (
-      <div className={`header__logo order-2 lg:order-1`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className={`header__logo order-2 md:order-1`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
          <a href="/" className="header__logo-link">
             <div className="header__logo-wrapper relative w-[clamp(4.5rem,22vw,6.25rem)] h-[clamp(2.25rem,11vw,3.125rem)] hidden lg:block">
                <motion.img
