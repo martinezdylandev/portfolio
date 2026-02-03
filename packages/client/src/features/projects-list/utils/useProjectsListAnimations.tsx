@@ -13,7 +13,8 @@ export interface UseProjectsListListAnimationReturn {
 }
 
 export const useProjectsListScrollAnimation = (): UseProjectsListScrollAnimationReturn => {
-   const animate: TargetAndTransition = { x: [0, -5121.04] };
+   const SCROLL_ANIMATION_X_END = -5121.04;
+   const animate: TargetAndTransition = { x: [0, SCROLL_ANIMATION_X_END] };
    const transition: Transition = {
       duration: 20,
       repeat: Infinity,
