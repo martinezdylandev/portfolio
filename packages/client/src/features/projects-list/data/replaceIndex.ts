@@ -1,5 +1,5 @@
-const replaceIndex = (index: number, PROJECT_LETTERS: string[]) => {
-   const replacedIndex = index + (1 % PROJECT_LETTERS.length);
+const replaceIndex = (index: number, projectLetters: string[]) => {
+   const replacedIndex = (index + 1) % projectLetters.length;
    return replacedIndex;
 };
 
