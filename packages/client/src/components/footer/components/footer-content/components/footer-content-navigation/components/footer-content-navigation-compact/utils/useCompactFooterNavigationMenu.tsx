@@ -12,7 +12,7 @@ export const useCompactFooterNavigationMenu = (): UseCompactFooterNavigationMenu
    const navRef = useRef<HTMLElement>(null);
    const buttonRef = useRef<HTMLButtonElement>(null);
 
-   const handleClick = () => {
+   const handleClick = (): void => {
       setIsNavigationMenuOpen((prev) => !prev);
    };
 
