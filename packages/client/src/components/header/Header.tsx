@@ -18,6 +18,7 @@ const Header = (): React.ReactElement => {
             transition-transform duration-600 ease-in-out
             ${isVisible ? "transform-none" : "-translate-y-full"}
          `}
+         id="header"
       >
          <div className="flex items-center justify-between p-6 px-auto">
             <HeaderLogo />
