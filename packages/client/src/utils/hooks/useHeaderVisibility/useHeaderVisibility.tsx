@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useHeaderVisibility = () => {
+export const useHeaderVisibility = (): boolean => {
    const [isVisible, setIsVisible] = useState(true);
    const previousScrollPosition = useRef(0);
 
