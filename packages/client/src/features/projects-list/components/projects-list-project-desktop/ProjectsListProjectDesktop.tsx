@@ -1,7 +1,7 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, number } from "framer-motion";
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { PROJECT_LETTERS, PROJECT_LOGO_ALT_TEXT, ProjectsListProjectProps } from "../../data/ProjectsListProjectData";
+import { HOVER_CARD_HEIGHT_PX, HOVER_CARD_OFFSET, HOVER_CARD_WIDTH_PX, PROJECT_LETTERS, PROJECT_LOGO_ALT_TEXT, ProjectsListProjectProps, VIEPORT_HEIGHT, VIEWPORT_WIDTH } from "../../data/projectsListProjectData";
 import replaceIndex from "../../data/replaceIndex";
 
 const ProjectsListProjectDesktop = ({ project, index }: ProjectsListProjectProps) => {
@@ -17,53 +17,54 @@ const ProjectsListProjectDesktop = ({ project, index }: ProjectsListProjectProps
       return description.substring(0, maxLength).trim() + "...";
    };
 
-   const handleMouseMove = (e: React.MouseEvent<HTMLLIElement>) => {
+   const handleMouseMove = (e: React.MouseEvent<HTMLLIElement>): void => {
       setMousePosition({ x: e.clientX, y: e.clientY });
    };
 
    const getPosition = () => {
-      const offset = 0;
-      const hoverDivWidth = 256; // w-64 in pixels
-      const hoverDivHeight = 350; // Approximate height with all content
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
       let left: number;
       let top: number;
 
+      if (typeof window === "undefined") {
+         return {
+            left: 0,
+            top: 0,
+         };
+      }
+
       // Check horizontal overflow
-      if (mousePosition.x + offset + hoverDivWidth > viewportWidth) {
+      if (mousePosition.x + HOVER_CARD_OFFSET + HOVER_CARD_WIDTH_PX > VIEWPORT_WIDTH) {
          // Position to the left of cursor
-         left = mousePosition.x - hoverDivWidth - offset;
+         left = mousePosition.x - HOVER_CARD_WIDTH_PX - HOVER_CARD_OFFSET;
       } else {
          // Position to the right of cursor
-         left = mousePosition.x + offset;
+         left = mousePosition.x + HOVER_CARD_OFFSET;
       }
 
       // Check vertical overflow
-      if (mousePosition.y + offset + hoverDivHeight > viewportHeight) {
+      if (mousePosition.y + HOVER_CARD_OFFSET + HOVER_CARD_HEIGHT_PX > VIEPORT_HEIGHT) {
          // Position above cursor
-         top = mousePosition.y - hoverDivHeight - offset;
+         top = mousePosition.y - HOVER_CARD_HEIGHT_PX - HOVER_CARD_OFFSET;
       } else {
          // Position below cursor
-         top = mousePosition.y + offset;
+         top = mousePosition.y + HOVER_CARD_OFFSET;
       }
 
       return { left, top };
    };
 
-   const handleMouseEnter = (e: React.MouseEvent<HTMLLIElement>) => {
+   const handleMouseEnter = (e: React.MouseEvent<HTMLLIElement>): void => {
       setMousePosition({ x: e.clientX, y: e.clientY });
       setIsHovered(true);
    };
 
-   const handleMouseLeave = () => {
+   const handleMouseLeave = (): void => {
       setIsHovered(false);
    };
 
    return (
       <>
-         <li className="projects-list__list-item grid gap-24 p-12 cursor-pointer border-0 rounded-xs transition duration-500 ease-in-out bg-card hover:bg-accent group" aria-label={`Project list item: ${project.project_name}`} onMouseMove={handleMouseMove} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+         <li className="projects-list__list-item grid gap-24 p-12 cursor-pointer border-0 rounded-xs transition duration-500 ease-in-out bg-card hover:bg-accent group" aria-label={`Project ${index} list item: ${project.project_name}`} onMouseMove={handleMouseMove} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <Link className="projects-list__link contents" to={`/projects/${project.project_name}`} aria-label={`View ${project.project_name}`}>
                <div className="projects-list__list-item-content flex justify-center items-center gap-0">
                   {PROJECT_LETTERS.map((letter, letterIndex) =>
