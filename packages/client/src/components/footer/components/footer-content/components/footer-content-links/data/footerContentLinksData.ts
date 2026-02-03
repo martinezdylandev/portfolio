@@ -1,3 +1,3 @@
-const FOOTER_CONTENT_LINKS__ARIA_LABEL = "Footer content links";
+const FOOTER_CONTENT_LINKS_ARIA_LABEL: string = "Footer content links";
 
-export { FOOTER_CONTENT_LINKS__ARIA_LABEL };
+export { FOOTER_CONTENT_LINKS_ARIA_LABEL };
