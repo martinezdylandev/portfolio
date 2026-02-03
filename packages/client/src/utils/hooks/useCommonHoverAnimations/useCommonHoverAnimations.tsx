@@ -6,9 +6,11 @@ export interface UseCommonHoverAnimationsReturn {
    transition: Transition;
 }
 
+// Fix animation, so when tapping the hoover one does not interact with the tap.
+
 export const useCommonHoverAnimations = (): UseCommonHoverAnimationsReturn => {
    const whileHover = { scale: 1.05 };
-   const whileTap = { scale: 0.95 };
+   const whileTap = { scale: 0.85 };
    const transition: Transition = { duration: 0.2, ease: "easeOut" as const };
 
    return {
