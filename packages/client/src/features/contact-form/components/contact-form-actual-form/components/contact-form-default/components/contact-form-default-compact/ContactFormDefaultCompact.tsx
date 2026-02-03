@@ -1,24 +1,25 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useThemeContext } from "../../../../../../../../utils/hooks/useThemeContext/useThemeContext";
-import type { ContactFormDefaultFormProps, formFields } from "../../data/contactFormDefaultData";
-import { CONTACT_FORM_DEFAULT_COMPACT_FORM_H3_TEXT_02, CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_EMAIL_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_NAME_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_PHONE_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_SEND_BUTTON_TEXT } from "../../data/contactFormDefaultData";
+import { ActiveFormProps } from "../../../../../../data/contactFormData";
+import type { ContactFormFormFields } from "../../../../data/contactFormActualFormData";
+import { CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_EMAIL_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_EMAIL_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_H3_TEXT, CONTACT_FORM_DEFAULT_FORM_MESSAGE_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_NAME_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_NAME_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_SEND_BUTTON_TEXT } from "../../../../data/contactFormActualFormData";
 
-const ContactFormDefaultCompact = ({ activeForm }: ContactFormDefaultFormProps): React.ReactElement => {
+const ContactFormDefaultCompact = ({ activeForm }: ActiveFormProps): React.ReactElement => {
    const { theme } = useThemeContext();
    const {
       register,
       handleSubmit,
       formState: { errors, touchedFields },
-   } = useForm<formFields>({
+   } = useForm<ContactFormFormFields>({
       mode: "onTouched",
    });
 
-   const onSubmit: SubmitHandler<formFields> = (data) => console.log(data);
+   const onSubmit: SubmitHandler<ContactFormFormFields> = (data) => console.log(data);
 
    return (
-      <div className={`contact-form__actual-form-default contact-form__actual-form-default--${activeForm === "firstForm" ? "active" : "inactive"} md:hidden`} aria-disabled={activeForm === "firstForm" ? "false" : "true"} aria-label={CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL}>
-         <h3 className="contact-form__actual-form-default-title pt-12 text-base text-justify font-hanken-grotesk font-bold whitespace-pre-line text-muted">{CONTACT_FORM_DEFAULT_COMPACT_FORM_H3_TEXT_02}</h3>
+      <div className={`contact-form__actual-form-default contact-form__actual-form-default--${activeForm === "defaultForm" ? "active" : "inactive"} md:hidden`} aria-hidden={activeForm === "defaultForm" ? "false" : "true"} aria-labelledby="contact_form__default-selector" aria-label={CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL}>
+         <h3 className="contact-form__actual-form-default-title pt-12 text-base text-justify font-hanken-grotesk font-bold whitespace-pre-line text-muted">{CONTACT_FORM_DEFAULT_FORM_H3_TEXT}</h3>
          <form className="contact-form__actual-form-default-form" data-testid="form" noValidate action="/form-sent" method="POST" onSubmit={handleSubmit(onSubmit)}>
             <div className="contact-form__actual-form-default-fields my-12 flex flex-col gap-12">
                <div className="contact-form__actual-form-default-input-field relative">
@@ -37,6 +38,7 @@ const ContactFormDefaultCompact = ({ activeForm }: ContactFormDefaultFormProps):
                      placeholder={CONTACT_FORM_DEFAULT_FORM_NAME_PLACEHOLDER}
                      aria-describedby="name-compact-error-message"
                      aria-invalid={`${errors.name ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_DEFAULT_FORM_NAME_ARIA_LABEL}
                      id="name-compact"
                   />
                   {errors.name && (
@@ -67,9 +69,10 @@ const ContactFormDefaultCompact = ({ activeForm }: ContactFormDefaultFormProps):
                         },
                      })}
                      type="tel"
-                     placeholder={CONTACT_FORM_DEFAULT_FORM_PHONE_PLACEHOLDER}
+                     placeholder={CONTACT_FORM_DEFAULT_FORM_EMAIL_PLACEHOLDER}
                      aria-describedby="phone-compact-error-message"
                      aria-invalid={`${errors.phone ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_DEFAULT_FORM_EMAIL_ARIA_LABEL}
                      id="phone-compact"
                   />
                   {errors.phone && (
@@ -100,6 +103,7 @@ const ContactFormDefaultCompact = ({ activeForm }: ContactFormDefaultFormProps):
                      placeholder={CONTACT_FORM_DEFAULT_FORM_EMAIL_PLACEHOLDER}
                      aria-describedby="email-compact-error-message"
                      aria-invalid={`${errors.email ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_DEFAULT_FORM_EMAIL_ARIA_LABEL}
                      id="email-compact"
                   />
                   {errors.email && (
@@ -118,7 +122,7 @@ const ContactFormDefaultCompact = ({ activeForm }: ContactFormDefaultFormProps):
                </div>
                <div className="contact-form__actual-form-default-input-field">
                   <label htmlFor="message-compact" className="contact-form__actual-form-default-label"></label>
-                  <textarea className="contact-form__actual-form-default-textarea text-xl font-hanken-grotesk w-9/10 transition-all duration-500 resize-none max-h-9 font-bold" placeholder={CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER} id="message-compact" name="user_message" />
+                  <textarea className="contact-form__actual-form-default-textarea text-xl font-hanken-grotesk w-9/10 transition-all duration-500 resize-none max-h-9 font-bold" placeholder={CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER} aria-label={CONTACT_FORM_DEFAULT_FORM_MESSAGE_ARIA_LABEL} id="message-compact" name="user_message" />
                </div>
             </div>
             <div className="contact-form__actual-form-default-send-button flex justify-center pb-12">

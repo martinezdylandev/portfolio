@@ -1,22 +1,24 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useThemeContext } from "../../../../../../../../utils/hooks/useThemeContext/useThemeContext";
-import type { ContactFormDefaultFormProps, formFields } from "../../data/contactFormDefaultData";
-import { CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_EMAIL_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_H3_TEXT, CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_NAME_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_PHONE_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_SEND_BUTTON_TEXT } from "../../data/contactFormDefaultData";
-const ContactFormDefaultDesktop = ({ activeForm }: ContactFormDefaultFormProps): React.ReactElement => {
+import { ActiveFormProps } from "../../../../../../data/contactFormData";
+import type { ContactFormFormFields } from "../../../../data/contactFormActualFormData";
+import { CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_EMAIL_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_EMAIL_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_H3_TEXT, CONTACT_FORM_DEFAULT_FORM_MESSAGE_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_NAME_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_NAME_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_PHONE_ARIA_LABEL, CONTACT_FORM_DEFAULT_FORM_PHONE_PLACEHOLDER, CONTACT_FORM_DEFAULT_FORM_SEND_BUTTON_TEXT } from "../../../../data/contactFormActualFormData";
+
+const ContactFormDefaultDesktop = ({ activeForm }: ActiveFormProps): React.ReactElement => {
    const { theme } = useThemeContext();
    const {
       register,
       handleSubmit,
       formState: { errors, touchedFields },
-   } = useForm<formFields>({
+   } = useForm<ContactFormFormFields>({
       mode: "onTouched",
    });
 
-   const onSubmit: SubmitHandler<formFields> = (data) => console.log(data);
+   const onSubmit: SubmitHandler<ContactFormFormFields> = (data) => console.log(data);
 
    return (
-      <div className={`contact-form__actual-form-default contact-form__actual-form-default--${activeForm === "firstForm" ? "active" : "inactive"} hidden md:block`} aria-disabled={activeForm === "firstForm" ? "false" : "true"} aria-label={CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL}>
+      <div className={`contact-form__actual-form-default contact-form__actual-form-default--${activeForm === "defaultForm" ? "active" : "inactive"} hidden md:block`} aria-hidden={activeForm === "defaultForm" ? "false" : "true"} aria-labelledby="contact_form__default-selector" aria-label={CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL}>
          <h3 className="contact-form__actual-form-default-title pt-12 text-base text-justify md:text-2xl font-hanken-grotesk font-bold whitespace-pre-line text-muted">{CONTACT_FORM_DEFAULT_FORM_H3_TEXT}</h3>
          <form className="contact-form__actual-form-default-form" data-testid="form" noValidate action="/form-sent" method="POST" onSubmit={handleSubmit(onSubmit)}>
             <div className="contact-form__actual-form-default-fields my-12 flex flex-col gap-12 md:my-24 md:grid md:grid-cols-2 md:gap-24">
@@ -36,6 +38,7 @@ const ContactFormDefaultDesktop = ({ activeForm }: ContactFormDefaultFormProps):
                      placeholder={CONTACT_FORM_DEFAULT_FORM_NAME_PLACEHOLDER}
                      aria-describedby="name-desktop-error-message"
                      aria-invalid={`${errors.name ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_DEFAULT_FORM_NAME_ARIA_LABEL}
                      id="name-desktop"
                   />
                   {errors.name && (
@@ -69,6 +72,7 @@ const ContactFormDefaultDesktop = ({ activeForm }: ContactFormDefaultFormProps):
                      placeholder={CONTACT_FORM_DEFAULT_FORM_PHONE_PLACEHOLDER}
                      aria-describedby="phone-desktop-error-message"
                      aria-invalid={`${errors.phone ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_DEFAULT_FORM_PHONE_ARIA_LABEL}
                      id="phone-desktop"
                   />
                   {errors.phone && (
@@ -99,6 +103,7 @@ const ContactFormDefaultDesktop = ({ activeForm }: ContactFormDefaultFormProps):
                      placeholder={CONTACT_FORM_DEFAULT_FORM_EMAIL_PLACEHOLDER}
                      aria-describedby="email-desktop-error-message"
                      aria-invalid={`${errors.email ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_DEFAULT_FORM_EMAIL_ARIA_LABEL}
                      id="email-desktop"
                   />
                   {errors.email && (
@@ -117,7 +122,7 @@ const ContactFormDefaultDesktop = ({ activeForm }: ContactFormDefaultFormProps):
                </div>
                <div className="contact-form__actual-form-default-input-field">
                   <label htmlFor="message-desktop" className="contact-form__actual-form-default-label"></label>
-                  <textarea className="contact-form__actual-form-default-textarea text-xl md:text-2xl font-hanken-grotesk w-9/10 md:w-full transition-all duration-500 resize-none max-h-9 font-bold" placeholder={CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER} id="message-desktop" name="user_message" />
+                  <textarea className="contact-form__actual-form-default-textarea text-xl md:text-2xl font-hanken-grotesk w-9/10 md:w-full transition-all duration-500 resize-none max-h-9 font-bold" placeholder={CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER} aria-label={CONTACT_FORM_DEFAULT_FORM_MESSAGE_ARIA_LABEL} id="message-desktop" name="user_message" />
                </div>
             </div>
             <div className="contact-form__actual-form-default-send-button flex justify-center pb-12">
