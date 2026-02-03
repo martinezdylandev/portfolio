@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import React from "react";
 import ContactFormActualForm from "./components/contact-form-actual-form/ContactFormActualForm";
 import ContactFormSelector from "./components/contact-form-selector/ContactFormSelector";
 import ContactFormTitle from "./components/contact-form-title/ContactFormTitle";
@@ -7,7 +8,7 @@ import { getContactFormDirection } from "./utils/getContactFormDirection";
 import { useContactFormAnimations } from "./utils/useContactFormAnimations";
 import { useContactFormState } from "./utils/useContactFormState";
 
-const ContactForm = () => {
+const ContactForm = (): React.ReactElement => {
    const { activeForm, handleActiveFormUpdate } = useContactFormState();
    const { initial, whileInView, transition, viewport } = useContactFormAnimations();
 
