@@ -2,8 +2,11 @@ export const ABOUT_ME_ARIA_LABEL = "About Me Section";
 export const ABOUT_ME_DETAILED_ARIA_LABEL = "About Me Detailed Section";
 export const ABOUT_ME_TEST_ID = "about-me-section";
 export const ABOUT_ME_DETAILED_TEST_ID = "about-me-detailed-section";
+export const ABOUT_ME_ABOUT_DETAILED_NAVIGATION_ARIA_LABEL = "Navigate to about page";
+export const ABOUT_ME_ABOUT_CONTACT_NAVIGATION_ARIA_LABEL = "Navigate to contact page";
 
 export const ABOUT_ME_HEADER_TITLE: string = "DYLAN MARTINEZ";
+export const ABOUT_ME_HEADER_IMAGE_SRC: string = "/dylan.webp";
 export const ABOUT_ME_HEADER_IMAGE_ALT_TEXT: string = "Dylan Martinez portrait";
 export const ABOUT_ME_HEADER_IMAGE_TEXT: string = "I'M WATCHING YOU";
 export const ABOUT_ME_CONTENT_TEXT_FIRST: string = "I am a Full-stack Software Developer from Argentina. Based in Copenhagen, Denmark, with +2 years of experience building modern end-to-end web applications. My passion for technology began early in my life when my mother first introduced me to computers in a small cybercafé. Fast forward today, I craft and maintain performant and user-focused solutions with passion and professionalism for each of my clients.";
