@@ -13,7 +13,10 @@ export const useAboutMeDesktopScrollAnimations = (): UseAboutMeDesktopScrollAnim
 
    const isLaptop = useMediaQuery("(max-width: 1024px)");
 
-   const ySize = isLaptop ? 275 : 400;
+   const Y_SIZE_LAPTOP = 275;
+   const Y_SIZE_DEFAULT = 400;
+
+   const ySize = isLaptop ? Y_SIZE_LAPTOP : Y_SIZE_DEFAULT;
 
    // Animations for upper aboutMe
    const y = useTransform(scrollY, [0, 600], [0, ySize]);
