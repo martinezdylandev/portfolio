@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router";
-import type { ProjectsListProjectProps } from "./data/ProjectsListProjectData";
-import { PROJECT_LOGO_ALT_TEXT } from "./data/ProjectsListProjectData";
+import type { ProjectsListProjectProps } from "./data/projectsListDetailedProjectData";
+import { PROJECT_LOGO_ALT_TEXT } from "./data/projectsListDetailedProjectData";
 
 const ProjectsListDetailedProject = ({ project, isOddProject }: ProjectsListProjectProps) => {
    const idPadded = String(project.project_id).padStart(2, "0");
