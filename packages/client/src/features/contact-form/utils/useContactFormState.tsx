@@ -7,7 +7,7 @@ export interface UseContactFormStateReturn {
 }
 
 export const useContactFormState = (): UseContactFormStateReturn => {
-   const [activeForm, setActiveForm] = useState<ActiveForm>("firstForm");
+   const [activeForm, setActiveForm] = useState<ActiveForm>("defaultForm");
 
    const handleActiveFormUpdate = (newActiveForm: ActiveForm): void => {
       setActiveForm(newActiveForm);
