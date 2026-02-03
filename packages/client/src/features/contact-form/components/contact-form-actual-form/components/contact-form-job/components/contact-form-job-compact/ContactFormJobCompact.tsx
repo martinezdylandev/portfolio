@@ -1,25 +1,26 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useThemeContext } from "../../../../../../../../utils/hooks/useThemeContext/useThemeContext";
-import type { ContactFormJobFormProps, formFields } from "../../data/contactFormJobData";
-import { CONTACT_FORM_JOB_FORM_ARIA_LABEL, CONTACT_FORM_JOB_FORM_COMPACT_H3_TEXT, CONTACT_FORM_JOB_FORM_EMAIL_PLACEHOLDER, CONTACT_FORM_JOB_FORM_MESSAGE_PLACEHOLDER, CONTACT_FORM_JOB_FORM_NAME_PLACEHOLDER, CONTACT_FORM_JOB_FORM_PHONE_PLACEHOLDER, CONTACT_FORM_JOB_FORM_SEND_BUTTON_TEXT } from "../../data/contactFormJobData";
+import { ActiveFormProps } from "../../../../../../data/contactFormData";
+import type { ContactFormFormFields } from "../../../../data/contactFormActualFormData";
+import { CONTACT_FORM_JOB_FORM_ARIA_LABEL, CONTACT_FORM_JOB_FORM_EMAIL_ARIA_LABEL, CONTACT_FORM_JOB_FORM_EMAIL_PLACEHOLDER, CONTACT_FORM_JOB_FORM_H3_TEXT, CONTACT_FORM_JOB_FORM_MESSAGE_ARIA_LABEL, CONTACT_FORM_JOB_FORM_MESSAGE_PLACEHOLDER, CONTACT_FORM_JOB_FORM_NAME_ARIA_LABEL, CONTACT_FORM_JOB_FORM_NAME_PLACEHOLDER, CONTACT_FORM_JOB_FORM_PHONE_PLACEHOLDER, CONTACT_FORM_JOB_FORM_SEND_BUTTON_TEXT } from "../../../../data/contactFormActualFormData";
 
-const ContactFormJobCompact = ({ activeForm }: ContactFormJobFormProps): React.ReactElement => {
+const ContactFormJobCompact = ({ activeForm }: ActiveFormProps): React.ReactElement => {
    const { theme } = useThemeContext();
 
    const {
       register,
       handleSubmit,
       formState: { errors, touchedFields },
-   } = useForm<formFields>({
+   } = useForm<ContactFormFormFields>({
       mode: "onTouched",
    });
 
-   const onSubmit: SubmitHandler<formFields> = (data) => console.log(data);
+   const onSubmit: SubmitHandler<ContactFormFormFields> = (data) => console.log(data);
 
    return (
-      <div className={`contact-form__actual-form-job contact-form__actual-form-job--${activeForm === "secondForm" ? "active" : "inactive"} md:hidden`} aria-disabled={activeForm === "secondForm" ? "false" : "true"} aria-label={CONTACT_FORM_JOB_FORM_ARIA_LABEL}>
-         <h3 className="contact-form__actual-form-job-title pt-12 text-base font-hanken-grotesk font-bold whitespace-pre-wrap text-muted">{CONTACT_FORM_JOB_FORM_COMPACT_H3_TEXT}</h3>
+      <div className={`contact-form__actual-form-job contact-form__actual-form-job--${activeForm === "jobForm" ? "active" : "inactive"} md:hidden`} aria-hidden={activeForm === "jobForm" ? "false" : "true"} aria-labelledby="contact_form__job-selector" aria-label={CONTACT_FORM_JOB_FORM_ARIA_LABEL}>
+         <h3 className="contact-form__actual-form-job-title pt-12 text-base font-hanken-grotesk font-bold whitespace-pre-wrap text-muted">{CONTACT_FORM_JOB_FORM_H3_TEXT}</h3>
          <form className="contact-form__actual-form-job-form" data-testid="form" noValidate action="/form-sent" method="POST" onSubmit={handleSubmit(onSubmit)}>
             <div className="contact-form__actual-form-job-fields my-12 flex flex-col gap-12">
                <div className="contact-form__actual-form-job-input-field relative">
@@ -38,6 +39,7 @@ const ContactFormJobCompact = ({ activeForm }: ContactFormJobFormProps): React.R
                      placeholder={CONTACT_FORM_JOB_FORM_NAME_PLACEHOLDER}
                      aria-describedby="name-job-compact-error-message"
                      aria-invalid={`${errors.name ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_JOB_FORM_NAME_ARIA_LABEL}
                      id="name-job-compact"
                   />
                   {errors.name && (
@@ -71,6 +73,7 @@ const ContactFormJobCompact = ({ activeForm }: ContactFormJobFormProps): React.R
                      placeholder={CONTACT_FORM_JOB_FORM_PHONE_PLACEHOLDER}
                      aria-describedby="phone-job-compact-error-message"
                      aria-invalid={`${errors.phone ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_JOB_FORM_ARIA_LABEL}
                      id="phone-job-compact"
                   />
                   {errors.phone && (
@@ -101,6 +104,7 @@ const ContactFormJobCompact = ({ activeForm }: ContactFormJobFormProps): React.R
                      placeholder={CONTACT_FORM_JOB_FORM_EMAIL_PLACEHOLDER}
                      aria-describedby="email-job-compact-error-message"
                      aria-invalid={`${errors.email ? "true" : "false"}`}
+                     aria-label={CONTACT_FORM_JOB_FORM_EMAIL_ARIA_LABEL}
                      id="email-job-compact"
                   />
                   {errors.email && (
@@ -119,7 +123,7 @@ const ContactFormJobCompact = ({ activeForm }: ContactFormJobFormProps): React.R
                </div>
                <div className="contact-form__actual-form-job-input-field">
                   <label htmlFor="message-job-compact" className="contact-form__actual-form-job-label"></label>
-                  <textarea className="contact-form__actual-form-job-textarea text-xl font-hanken-grotesk w-9/10 transition-all duration-500 resize-none max-h-9 font-bold" placeholder={CONTACT_FORM_JOB_FORM_MESSAGE_PLACEHOLDER} id="message-job-compact" name="user_message" />
+                  <textarea className="contact-form__actual-form-job-textarea text-xl font-hanken-grotesk w-9/10 transition-all duration-500 resize-none max-h-9 font-bold" placeholder={CONTACT_FORM_JOB_FORM_MESSAGE_PLACEHOLDER} id="message-job-compact" name="user_message" aria-label={CONTACT_FORM_JOB_FORM_MESSAGE_ARIA_LABEL} />
                </div>
             </div>
             <div className="contact-form__actual-form-job-send-button flex justify-center pb-12">
