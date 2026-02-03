@@ -12,16 +12,7 @@ const HeaderLogo = (): React.ReactElement => {
       <div className={`header__logo order-2 md:order-1`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
          <a href="/" className="header__logo-link">
             <div className="header__logo-wrapper relative w-[clamp(4.5rem,22vw,6.25rem)] h-[clamp(2.25rem,11vw,3.125rem)] hidden lg:block">
-               <motion.img
-                  src={theme === "light" ? "/header/dm_logo_light_mode.svg" : "/header/dm_logo_dark_mode.svg"}
-                  className="header__logo-image absolute top-0 left-0 w-full border-b-0 border-solid"
-                  alt={LOGO_IMAGE_ALT_TEXT}
-                  animate={imageAnimation}
-                  style={{
-                     borderBottomColor: "var(--text-heading)",
-                  }}
-                  transition={imageTransition}
-               />
+               <motion.img src={theme === "light" ? "/header/dm_logo_light_mode.svg" : "/header/dm_logo_dark_mode.svg"} className="header__logo-image absolute top-0 left-0 w-full border-b-0 border-solid border-b-heading" alt={LOGO_IMAGE_ALT_TEXT} animate={imageAnimation} transition={imageTransition} />
                <motion.span className="header__logo-title absolute left-0 w-full text-center text-xs font-bold text-heading" initial={{ top: "1%", opacity: 0 }} animate={titleAnimation} transition={titleTransition}>
                   {LOGO_TITLE_TEXT}
                </motion.span>
