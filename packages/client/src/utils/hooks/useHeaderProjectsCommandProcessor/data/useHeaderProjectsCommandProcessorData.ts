@@ -1,9 +1,4 @@
-export interface ProjectInterface {
-   project_id: number;
-   project_name: string;
-   project_description: string;
-   project_technologies: string;
-}
+import type { ProjectInterface } from "../../../../features/project/data/projectData";
 
 export interface UseHeaderProjectsCommandProcessorProps {
    projects: ProjectInterface[] | null | undefined;
