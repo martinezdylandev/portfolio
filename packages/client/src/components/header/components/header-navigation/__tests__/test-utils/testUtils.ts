@@ -2,22 +2,15 @@ import { useThemeContext } from "../../../../../../utils/hooks/useThemeContext/u
 
 const setupLightMode = () => {
    vi.mocked(useThemeContext).mockReturnValue({
-      mode: "light",
-      toggleMode: vi.fn(),
+      theme: "light",
+      toggleTheme: vi.fn(),
    });
 };
 
 const setupDarkMode = () => {
    vi.mocked(useThemeContext).mockReturnValue({
-      mode: "dark",
-      toggleMode: vi.fn(),
-   });
-};
-
-const setupRetroMode = () => {
-   vi.mocked(useThemeContext).mockReturnValue({
-      mode: "retro",
-      toggleMode: vi.fn(),
+      theme: "dark",
+      toggleTheme: vi.fn(),
    });
 };
 
@@ -25,4 +18,4 @@ const resetModes = () => {
    vi.resetAllMocks();
 };
 
-export { resetModes, setupDarkMode, setupLightMode, setupRetroMode };
+export { resetModes, setupDarkMode, setupLightMode };
