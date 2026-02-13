@@ -1,8 +1,9 @@
+import React from "react";
 import { useThemeContext } from "../../../../../../utils/hooks/useThemeContext/useThemeContext";
 import { FOOTER_ARROW_ICON_DARK_MODE, FOOTER_ARROW_ICON_LIGHT_MODE, FOOTER_SCROLL_UP_ARIA_LABEL, FOOTER_SCROLL_UP_ARROW_ICON_ALT_TEXT, FOOTER_SCROLL_UP_TEXT } from "./data/footerContentScrollUpData";
 import { scrollToTop } from "./utils/scrollToTop";
 
-const FooterContentScrollUp = () => {
+const FooterContentScrollUp = (): React.ReactElement => {
    const { theme } = useThemeContext();
 
    return (
