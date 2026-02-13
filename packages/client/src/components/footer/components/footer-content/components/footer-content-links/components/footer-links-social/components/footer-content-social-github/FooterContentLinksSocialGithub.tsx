@@ -1,7 +1,8 @@
+import React from "react";
 import { useThemeContext } from "../../../../../../../../../../utils/hooks/useThemeContext/useThemeContext";
 import { FOOTER_CONTENT_SOCIAL_GITHUB_ARIA_LABEL, GITHUB_LOGO_ALT, GITHUB_LOGO_DARK_MODE, GITHUB_LOGO_LIGHT_MODE, GITHUB_PROFILE_URL } from "./data/footerContentSocialGithubData";
 
-const FooterContentLinksSocialGithub = () => {
+const FooterContentLinksSocialGithub = (): React.ReactElement => {
    const { theme } = useThemeContext();
    return (
       <div className="footer-content__links-social-github" aria-label={FOOTER_CONTENT_SOCIAL_GITHUB_ARIA_LABEL}>
