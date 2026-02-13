@@ -1,8 +1,9 @@
+import React from "react";
 import FooterContentLinksSocialGithub from "./components/footer-content-social-github/FooterContentLinksSocialGithub";
 import FooterContentLinksSocialLinkedin from "./components/footer-content-social-linkedin/FooterContentLinksSocialLinkedin";
 import { FOOTER_CONTENT_SOCIAL_ARIA_LABEL, FOOTER_CONTENT_SOCIAL_SPAN_TEXT } from "./data/footerContentSocialData";
 
-const FooterContentLinksSocial = () => {
+const FooterContentLinksSocial = (): React.ReactElement => {
    return (
       <div className="footer-content__links-social flex flex-col gap-5 self-start justify-center items-center" aria-label={FOOTER_CONTENT_SOCIAL_ARIA_LABEL}>
          <span className="footer-content__links-social-span font-hanken-grotesk text-xl font-bold decoration-1 text-heading">{FOOTER_CONTENT_SOCIAL_SPAN_TEXT}</span>
