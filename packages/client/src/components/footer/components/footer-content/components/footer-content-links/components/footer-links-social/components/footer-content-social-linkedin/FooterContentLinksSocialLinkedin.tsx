@@ -1,6 +1,8 @@
+import React from "react";
 import { useThemeContext } from "../../../../../../../../../../utils/hooks/useThemeContext/useThemeContext";
 import { FOOTER_CONTENT_SOCIAL_LINKEDIN_ARIA_LABEL, LINKEDIN_LOGO_ALT, LINKEDIN_LOGO_DARK_MODE, LINKEDIN_LOGO_LIGHT_MODE, LINKEDIN_PROFILE_URL } from "./data/footerContentSocialLinkedinData";
-const FooterContentLinksSocialLinkedin = () => {
+
+const FooterContentLinksSocialLinkedin = (): React.ReactElement => {
    const { theme } = useThemeContext();
    return (
       <div className="footer-content__links-social-linkedin" aria-label={FOOTER_CONTENT_SOCIAL_LINKEDIN_ARIA_LABEL}>
