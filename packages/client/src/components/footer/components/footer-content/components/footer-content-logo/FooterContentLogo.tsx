@@ -1,7 +1,8 @@
+import React from "react";
 import { useThemeContext } from "../../../../../../utils/hooks/useThemeContext/useThemeContext";
 import { FOOTER_CONTENT_LOGO_ARIA_LABEL, FOOTER_CONTENT_LOGO_DARK_MODE, FOOTER_CONTENT_LOGO_IMAGE_ALT, FOOTER_CONTENT_LOGO_LIGHT_MODE } from "./data/footerContentLogoData";
 
-const FooterContentLogo = () => {
+const FooterContentLogo = (): React.ReactElement => {
    const { theme } = useThemeContext();
 
    return (
