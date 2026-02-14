@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router";
+import ErrorBoundary from "../components/error-boundary/ErrorBoundary";
 import Footer from "../components/footer/Footer";
+import GenericErrorPage from "../components/generic-error-page/GenericErrorPage";
 import Header from "../components/header/Header";
 import ContactForm from "../features/contact-form/ContactForm";
 import Project from "../features/project/Project";
@@ -19,11 +21,46 @@ function AppContent() {
          <ScrollToTop />
          <Header />
          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/projects/:projectName" element={<Project />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/about" element={<AboutMePage />} />
+            <Route
+               path="/"
+               element={
+                  <ErrorBoundary fallback={<GenericErrorPage />}>
+                     <HomePage />
+                  </ErrorBoundary>
+               }
+            />
+            <Route
+               path="/projects"
+               element={
+                  <ErrorBoundary fallback={<GenericErrorPage />}>
+                     <ProjectsPage />
+                  </ErrorBoundary>
+               }
+            />
+            <Route
+               path="/projects/:projectName"
+               element={
+                  <ErrorBoundary fallback={<GenericErrorPage />}>
+                     <Project />
+                  </ErrorBoundary>
+               }
+            />
+            <Route
+               path="/contact"
+               element={
+                  <ErrorBoundary fallback={<GenericErrorPage />}>
+                     <ContactPage />
+                  </ErrorBoundary>
+               }
+            />
+            <Route
+               path="/about"
+               element={
+                  <ErrorBoundary fallback={<GenericErrorPage />}>
+                     <AboutMePage />
+                  </ErrorBoundary>
+               }
+            />
          </Routes>
          {!isContactPage && <ContactForm />}
          <Footer />
