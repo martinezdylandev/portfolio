@@ -55,7 +55,19 @@ Examples:
 - **Purpose-driven:** good: `.error-message`; bad: `.red-text`, `.left-column`
 - **Avoid ID selectors:** prefer `.header` over `#header`
 
-## IV. Component and File Organization Rules (Naming Conventions)
+## IV. Test Variable Naming (Component Tests)
+
+When writing component tests, name queried elements so the test reads clearly and the relationship between root and children is obvious.
+
+- **Root element (component under test):** Name the variable after the component or its main container so it’s clear what is under test. Use camelCase (e.g. `footerContentLinksNavigation` or `footerContentLinksNavigationElement`), because it matches the component context and stays consistent with other naming in the file.
+- **Child elements:** Use simple, role-based names (e.g. `spanElement`, `listElement`, `linkElement`, `buttonElement`) for elements found _within_ the component, because it makes it obvious they are the span/list/link/button inside the root and keeps test code easy to scan.
+
+Examples:
+
+- **Root:** `const footerContentLinksNavigation = screen.getByLabelText(FOOTER_CONTENT_LINKS_NAVIGATION_ARIA_LABEL);` or `const footerContentLinksNavigationElement = ...`.
+- **Children:** `const spanElement = screen.getByText(...);`, `const listElement = screen.getByRole("list");`, `const links = screen.getAllByRole("link");`.
+
+## V. Component and File Organization Rules (Naming Conventions)
 
 - **Directories/Folders:** Use `kebab-case`, because it is consistent across platforms and matches CSS conventions.
 - **Component Files/Classes:** Use `PascalCase`, because it matches React component naming and is easy to visually distinguish.
@@ -71,7 +83,7 @@ Examples:
 - **Constants:** `export const MAX_ITEMS = 10;`
 - **Co-location:** `components/header/components/header-mode-switcher/__tests__/HeaderModeSwitcher.test.tsx`
 
-## V. Common Principles
+## VI. Common Principles
 
 - **SOLID:** Design small, focused modules with clear responsibilities and stable interfaces, because it keeps features easier to extend and safer to refactor.
 - **Clean Code:** Optimize for readability (clear naming, small functions, low nesting), because code is read far more often than it’s written.
