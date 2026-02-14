@@ -1,0 +1,5 @@
+const GENERIC_ERROR_PAGE_ARIA_LABEL: string = "Error page";
+const GENERIC_ERROR_PAGE_MESSAGE: string = "An error has occurred";
+const GENERIC_ERROR_PAGE_BUTTON: string = "Reload page";
+
+export { GENERIC_ERROR_PAGE_ARIA_LABEL, GENERIC_ERROR_PAGE_BUTTON, GENERIC_ERROR_PAGE_MESSAGE };
