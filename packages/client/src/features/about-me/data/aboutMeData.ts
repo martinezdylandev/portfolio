@@ -1,5 +1,5 @@
-export const ABOUT_ME_ARIA_LABEL = "About Me Section";
-export const ABOUT_ME_DETAILED_ARIA_LABEL = "About Me Detailed Section";
+export const ABOUT_ME_ARIA_LABEL = "About me section";
+export const ABOUT_ME_DETAILED_ARIA_LABEL = "About me detailed section";
 export const ABOUT_ME_TEST_ID = "about-me-section";
 export const ABOUT_ME_DETAILED_TEST_ID = "about-me-detailed-section";
 export const ABOUT_ME_ABOUT_DETAILED_NAVIGATION_ARIA_LABEL = "Navigate to about page";
@@ -18,7 +18,7 @@ export const CATEGORY_NAME: string[] = ["ME", "PHILOSOPHY", "TOOLS", "STORY"];
 
 export const CATEGORY_DESCRIPTION: string[] = ["THE WHY", "THE HOW", "UNDER CONSTRUCTION"];
 
-export const INTRO_TEXTS: string[] = ["Dylan Martinez is a Full-stack Software Developer with +2 years of experience from Argentina, based in Copenhagen, Denmark.", "Web development is a passion that started earlier in my life when I first got introduced to a computer, by my mother, in a cybercafe.", "All of the projects were I got involded are built around modern web technologies such as React, TypeScript and Express among many other cool libraries and frameworks.", "My projects, my work, is something I want to be proud of, and I put both my passion and professionalism on that, creating solutions that performs and fascinate users by equal."];
+export const INTRO_TEXTS: string[] = ["I'm a Full-stack Software Developer with +2 years of experience. Originally from Argentina, now based in Copenhagen, Denmark.", "Web development is a passion that started earlier in my life when I first got introduced to a computer, by my mother, in a cybercafe.", "All of the projects were I got involded are built around modern web technologies such as React, TypeScript and Express among many other cool libraries and frameworks.", "My projects, my work, is something I want to be proud of, and I put both my passion and professionalism on that, creating solutions that performs and fascinate users by equal."];
 
 export type PhilosophyColumns = "Column N1" | "Column N2" | "Column N3" | "Column N4";
 
