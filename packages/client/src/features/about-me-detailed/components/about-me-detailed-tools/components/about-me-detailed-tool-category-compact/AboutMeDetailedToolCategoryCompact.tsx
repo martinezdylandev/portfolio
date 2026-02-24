@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import type { ToolCategory } from "../../../../../../../about-me/data/aboutMeData";
+import type { ToolCategory } from "../../../../../about-me/data/aboutMeData";
 import { useAboutMeDetailedToolCategoryAnimations } from "../../utils/useAboutMeDetailedToolCategoryAnimations";
 
 interface AboutMeDetailedToolCategoryCompactProps {
