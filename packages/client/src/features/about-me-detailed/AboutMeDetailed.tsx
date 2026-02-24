@@ -7,13 +7,11 @@ import AboutMeDetailedTools from "./components/about-me-detailed-tools/AboutMeDe
 
 const AboutMeDetailed = () => {
    return (
-      <motion.section id="about" className={`about-me-detailed flex flex-col justify-center items-center`} aria-label={ABOUT_ME_DETAILED_ARIA_LABEL}>
-         <div className="about-me-detailed__content grid content-center">
-            <AboutMeDetailedIntro />
-            <AboutMeDetailedPhilosophy />
-            <AboutMeDetailedTools />
-            <AboutMeDetailedStory />
-         </div>
+      <motion.section id="about" className={`about-me-detailed`} aria-label={ABOUT_ME_DETAILED_ARIA_LABEL}>
+         <AboutMeDetailedIntro />
+         <AboutMeDetailedPhilosophy />
+         <AboutMeDetailedTools />
+         <AboutMeDetailedStory />
       </motion.section>
    );
 };
