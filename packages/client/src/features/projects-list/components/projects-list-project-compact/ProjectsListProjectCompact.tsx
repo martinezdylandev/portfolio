@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router";
 import { useMediaQuery } from "../../../../utils/hooks/useMediaQuery/useMediaQuery";
-import { PROJECT_LOGO_ALT_TEXT, ProjectsListProjectProps } from "../../data/projectsListProjectData";
+import { PROJECT_LOGO_ALT_TEXT, ProjectsListProjectProps } from "../../data/ProjectsListProjectData";
 
 const ProjectsListProjectCompact = ({ project, index }: ProjectsListProjectProps) => {
    const idPadded = String(project.project_id).padStart(2, "0");
