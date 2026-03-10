@@ -1,10 +1,11 @@
-import ProjectMainCoverContainer from "./components/project-main-cover-container/ProjectMainCoverContainer";
+import ProjectMainCoverContainerCompact from "./components/project-main-cover-container-compact/ProjectMainCoverContainerCompact";
+import ProjectMainCoverContainerDesktop from "./components/project-main-cover-container-desktop/ProjectMainCoverContainerDesktop";
 import { PROJECT_MAIN_COVER_ARIA_LABEL, ProjectMainCoverProps } from "./data/projectMainCoverData";
 
-const ProjectMainCover = ({ project }: ProjectMainCoverProps) => {
+const ProjectMainCover = ({ project, isDesktop }: ProjectMainCoverProps) => {
    return (
-      <section className="project__main-cover p-25 flex min-w-screen min-h-screen bg-page" aria-label={PROJECT_MAIN_COVER_ARIA_LABEL}>
-         <ProjectMainCoverContainer project={project} />
+      <section className={`project__main-cover flex min-w-screen bg-page`} aria-label={PROJECT_MAIN_COVER_ARIA_LABEL}>
+         {isDesktop ? <ProjectMainCoverContainerDesktop project={project} /> : <ProjectMainCoverContainerCompact project={project} />}
       </section>
    );
 };
