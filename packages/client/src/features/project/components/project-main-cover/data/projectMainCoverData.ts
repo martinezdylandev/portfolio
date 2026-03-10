@@ -4,4 +4,5 @@ import type { ProjectInterface } from "../../../data/projectData";
 
 export interface ProjectMainCoverProps {
    project: ProjectInterface;
+   isDesktop: boolean;
 }
