@@ -1,7 +1,7 @@
-import { AnimatePresence, motion, number } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { HOVER_CARD_HEIGHT_PX, HOVER_CARD_OFFSET, HOVER_CARD_WIDTH_PX, PROJECT_LETTERS, PROJECT_LOGO_ALT_TEXT, ProjectsListProjectProps, VIEPORT_HEIGHT, VIEWPORT_WIDTH } from "../../data/projectsListProjectData";
+import { HOVER_CARD_HEIGHT_PX, HOVER_CARD_OFFSET, HOVER_CARD_WIDTH_PX, PROJECT_LETTERS, PROJECT_LOGO_ALT_TEXT, ProjectsListProjectProps, VIEPORT_HEIGHT, VIEWPORT_WIDTH } from "../../data/ProjectsListProjectData";
 import replaceIndex from "../../data/replaceIndex";
 
 const ProjectsListProjectDesktop = ({ project, index }: ProjectsListProjectProps) => {
