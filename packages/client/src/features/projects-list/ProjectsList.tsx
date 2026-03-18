@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import React from "react";
+import HttpErrorFallback from "@/components/http-error-fallback/HttpErrorFallback";
 import useFetchData from "../../utils/hooks/useFetchData/useFetchData";
 import { useMediaQuery } from "../../utils/hooks/useMediaQuery/useMediaQuery";
 import type { ProjectInterface } from "../project/data/projectData";
 import ProjectsListProjectCompact from "./components/projects-list-project-compact/ProjectsListProjectCompact";
 import ProjectsListProjectDesktop from "./components/projects-list-project-desktop/ProjectsListProjectDesktop";
-import { PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT, PROJECTS_LIST_ERROR_ARIA_LABEL, PROJECTS_LIST_ERROR_TEXT, PROJECTS_LIST_LOADING_ARIA_LABEL, PROJECTS_LIST_LOADING_TEXT, PROJECTS_LIST_NO_DATA_TEXT, PROJECTS_LIST_SCROLLING_TEXT_PROJECTS, PROJECTS_LIST_SCROLLING_TEXT_PROJEKTER, PROJECTS_LIST_SCROLLING_TEXT_PROYECTOS, PROJECTS_LIST_UL_TEST_ID } from "./data/projectsListData";
+import { PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT, PROJECTS_LIST_ERROR_ARIA_LABEL, PROJECTS_LIST_LOADING_ARIA_LABEL, PROJECTS_LIST_LOADING_TEXT, PROJECTS_LIST_NO_DATA_TEXT, PROJECTS_LIST_SCROLLING_TEXT_PROJECTS, PROJECTS_LIST_SCROLLING_TEXT_PROJEKTER, PROJECTS_LIST_SCROLLING_TEXT_PROYECTOS, PROJECTS_LIST_UL_TEST_ID } from "./data/projectsListData";
 import { useProjectsListListAnimation, useProjectsListScrollAnimation } from "./utils/useProjectsListAnimations";
 
 const ProjectsList = (): React.ReactElement => {
@@ -25,13 +26,7 @@ const ProjectsList = (): React.ReactElement => {
    }
 
    if (error) {
-      return (
-         <div role="status" aria-live="polite">
-            <span className="projects-list__error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECTS_LIST_ERROR_ARIA_LABEL}>
-               {PROJECTS_LIST_ERROR_TEXT} {error.message}
-            </span>
-         </div>
-      );
+      return <HttpErrorFallback error={error} />;
    }
 
    if (!projects || !Array.isArray(projects)) {

@@ -1,3 +1,4 @@
+import HttpErrorFallback from "@/components/http-error-fallback/HttpErrorFallback";
 import useFetchData from "../../utils/hooks/useFetchData/useFetchData";
 import { useMediaQuery } from "../../utils/hooks/useMediaQuery/useMediaQuery";
 import ProjectsListDetailedHeaderCompact from "./components/projects-list-detailed-header-compact/ProjectsListDetailedHeaderCompact";
@@ -6,7 +7,7 @@ import ProjectsListDetailedProjectCompact from "./components/projects-list-detai
 import ProjectsListDetailedProjectDesktop from "./components/projects-list-detailed-project-desktop/ProjectsListDetailedProjectDesktop";
 import { isOdd } from "./data/isOdd";
 import type { ProjectInterface } from "./data/projectsListDetailedData";
-import { PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT, PROJECTS_LIST_ERROR_ARIA_LABEL, PROJECTS_LIST_ERROR_TEXT, PROJECTS_LIST_LOADING_ARIA_LABEL, PROJECTS_LIST_LOADING_TEXT, PROJECTS_LIST_NO_DATA_TEXT, PROJECTS_LIST_UL_TEST_ID } from "./data/projectsListDetailedData";
+import { PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT, PROJECTS_LIST_ERROR_ARIA_LABEL, PROJECTS_LIST_LOADING_ARIA_LABEL, PROJECTS_LIST_LOADING_TEXT, PROJECTS_LIST_NO_DATA_TEXT, PROJECTS_LIST_UL_TEST_ID } from "./data/projectsListDetailedData";
 import { useProjectsListDetailedHeaderAnimations } from "./utils/useProjectsListDetailedAnimations";
 
 const ProjectsListDetailed = () => {
@@ -23,11 +24,7 @@ const ProjectsListDetailed = () => {
    }
 
    if (error) {
-      return (
-         <span className="projects-list-detailed__error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECTS_LIST_ERROR_ARIA_LABEL}>
-            {PROJECTS_LIST_ERROR_TEXT} {error.message}
-         </span>
-      );
+      return <HttpErrorFallback error={error} />;
    }
 
    if (!projects || !Array.isArray(projects)) {
