@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { HttpError } from "../../errors/HttpError";
 import type { FetchResult } from "./data/useFetchDataData";
 import { API_BASE_URL } from "./data/useFetchDataData";
 
@@ -10,7 +11,7 @@ if (!API_BASE_URL) {
 const useFetchData = <T = unknown,>(apiPath: string | null): FetchResult<T> => {
    const [data, setData] = useState<T | null>(null);
    const [loading, setLoading] = useState<boolean>(true);
-   const [error, setError] = useState<Error | null>(null);
+   const [error, setError] = useState<FetchResult<T>["error"]>(null);
 
    useEffect(() => {
       if (!apiPath) {
@@ -22,7 +23,6 @@ const useFetchData = <T = unknown,>(apiPath: string | null): FetchResult<T> => {
 
       const cleanApiPath = apiPath.startsWith("/") ? apiPath.substring(1) : apiPath;
       const url = `${API_BASE_URL}/${cleanApiPath}`;
-      console.log(`Fetching data from: ${url}`);
 
       const abortController = new AbortController();
       const signal = abortController.signal;
@@ -36,14 +36,14 @@ const useFetchData = <T = unknown,>(apiPath: string | null): FetchResult<T> => {
             const response = await fetch(url, { signal });
 
             if (!response.ok) {
-               let errorBody = null;
+               let errorBody: unknown = null;
                try {
                   errorBody = await response.json();
                } catch (e) {
                   console.log(e);
                }
                const errorMessage = (errorBody as { message?: string })?.message || `HTTP error! status: ${response.status}`;
-               throw new Error(errorMessage);
+               throw new HttpError({ status: response.status, message: errorMessage, details: errorBody });
             }
 
             const apiResponse = await response.json();
