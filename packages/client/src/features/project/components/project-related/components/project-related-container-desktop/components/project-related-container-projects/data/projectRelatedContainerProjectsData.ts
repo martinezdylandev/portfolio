@@ -1,4 +1,6 @@
 const PROJECT_RELATED_CONTAINER_PROJECTS_ARIA_LABEL: string = "Related projects container projects";
+const PROJECT_RELATED_CONTAINER_PROJECTS_LOADING_ARIA_LABEL: string = "Loading projects";
+const PROJECT_RELATED_CONTAINER_PROJECTS_ERROR_ARIA_LABEL: string = "Projects error message";
 import type { ProjectInterface } from "../../../../../../../data/projectData";
 
 const getRandomProjects = (projectsArray: ProjectInterface[], count: number): ProjectInterface[] => {
@@ -22,4 +24,4 @@ const getProjectNameParts = (projectName: string): { firstPart: string; secondPa
    return { firstPart, secondPart };
 };
 
-export { getProjectNameParts, getRandomProjects, PROJECT_RELATED_CONTAINER_PROJECTS_ARIA_LABEL };
+export { getProjectNameParts, getRandomProjects, PROJECT_RELATED_CONTAINER_PROJECTS_ARIA_LABEL, PROJECT_RELATED_CONTAINER_PROJECTS_ERROR_ARIA_LABEL, PROJECT_RELATED_CONTAINER_PROJECTS_LOADING_ARIA_LABEL };

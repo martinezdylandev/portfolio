@@ -1,5 +1,6 @@
+import HttpErrorFallback from "@/components/http-error-fallback/HttpErrorFallback";
 import ProjectRelatedContainerProjectsProject from "./components/project-related-container-projects-project/ProjectRelatedContainerProjectsProject.tsx";
-import { PROJECT_RELATED_CONTAINER_PROJECTS_ARIA_LABEL, getProjectNameParts } from "./data/projectRelatedContainerProjectsData.ts";
+import { PROJECT_RELATED_CONTAINER_PROJECTS_ARIA_LABEL, PROJECT_RELATED_CONTAINER_PROJECTS_ERROR_ARIA_LABEL, PROJECT_RELATED_CONTAINER_PROJECTS_LOADING_ARIA_LABEL, getProjectNameParts } from "./data/projectRelatedContainerProjectsData.ts";
 import { useRelatedProjects } from "./utils/useRelatedProjects";
 
 const ProjectRelatedContainerProjects = () => {
@@ -7,23 +8,19 @@ const ProjectRelatedContainerProjects = () => {
 
    if (loading) {
       return (
-         <span className="project__related-container-projects-loading-message text-center text-2xl font-semibold pt-48 text-heading" aria-label="Loading projects">
+         <span className="project__related-container-projects-loading-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECT_RELATED_CONTAINER_PROJECTS_LOADING_ARIA_LABEL}>
             Loading projects...
          </span>
       );
    }
 
    if (error) {
-      return (
-         <span className="project__related-container-projects-error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label="Error message">
-            Error loading projects: {error.message}
-         </span>
-      );
+      return <HttpErrorFallback error={error} />;
    }
 
    if (relatedProjects.length === 0) {
       return (
-         <span className="project__related-container-projects-error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label="Error message">
+         <span className="project__related-container-projects-error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECT_RELATED_CONTAINER_PROJECTS_ERROR_ARIA_LABEL}>
             No projects data available or unexpected format.
          </span>
       );

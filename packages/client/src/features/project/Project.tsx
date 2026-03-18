@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import HttpErrorFallback from "@/components/http-error-fallback/HttpErrorFallback";
 import useFetchData from "../../utils/hooks/useFetchData/useFetchData";
 import { useMediaQuery } from "../../utils/hooks/useMediaQuery/useMediaQuery";
 import ProjectMainCover from "./components/project-main-cover/ProjectMainCover";
@@ -7,7 +8,7 @@ import ProjectRelated from "./components/project-related/ProjectRelated";
 import ProjectResults from "./components/project-results/ProjectResults";
 import ProjectTimeline from "./components/project-timeline/ProjectTimeline";
 import type { ProjectInterface } from "./data/projectData";
-import { PROJECT_ARIA_LABEL, PROJECT_ERROR_ARIA_LABEL, PROJECT_ERROR_TEXT, PROJECT_LOADING_ARIA_LABEL, PROJECT_LOADING_TEXT, PROJECT_NO_DATA_TEXT } from "./data/projectData";
+import { PROJECT_ARIA_LABEL, PROJECT_ERROR_ARIA_LABEL, PROJECT_LOADING_ARIA_LABEL, PROJECT_LOADING_TEXT, PROJECT_NO_DATA_TEXT } from "./data/projectData";
 import { buildProjectApiPath } from "./utils/buildProjectApiPath";
 
 const Project = () => {
@@ -25,11 +26,7 @@ const Project = () => {
    }
 
    if (error) {
-      return (
-         <span className="project__error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECT_ERROR_ARIA_LABEL}>
-            {PROJECT_ERROR_TEXT} {error.message}
-         </span>
-      );
+      return <HttpErrorFallback error={error} />;
    }
 
    if (!project) {
