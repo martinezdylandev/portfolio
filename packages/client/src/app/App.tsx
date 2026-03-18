@@ -3,6 +3,7 @@ import ErrorBoundary from "../components/error-boundary/ErrorBoundary";
 import Footer from "../components/footer/Footer";
 import GenericErrorPage from "../components/generic-error-page/GenericErrorPage";
 import Header from "../components/header/Header";
+import NotFoundPage from "../components/not-found-page/NotFoundPage";
 import ContactForm from "../features/contact-form/ContactForm";
 import Project from "../features/project/Project";
 import ScrollToTop from "../utils/scrollToTop/ScrollToTop";
@@ -58,6 +59,14 @@ function AppContent() {
                element={
                   <ErrorBoundary fallback={<GenericErrorPage />}>
                      <AboutMePage />
+                  </ErrorBoundary>
+               }
+            />
+            <Route
+               path="*"
+               element={
+                  <ErrorBoundary fallback={<GenericErrorPage />}>
+                     <NotFoundPage />
                   </ErrorBoundary>
                }
             />
