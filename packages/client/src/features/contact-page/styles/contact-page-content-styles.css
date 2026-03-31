@@ -1,0 +1,5 @@
+.contact-page__content .contact-form {
+   /* ContactForm is also used globally; on the dedicated page we want it to size to content. */
+   min-height: unset;
+   min-width: 100%;
+}
