@@ -1,0 +1,25 @@
+.contact-page-pitch__text-box {
+   background-color: var(--bg-card);
+   border: 1px solid var(--border-subtle);
+}
+
+.contact-page-pitch__box-header {
+   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+   line-height: 1.6;
+   border-bottom: 1px solid var(--border-subtle);
+}
+
+.contact-page-pitch__dots {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+
+.dot {
+   width: 15px;
+   height: 15px;
+   border-radius: 100%;
+   background-color: var(--color-accent);
+   will-change: transform;
+}
