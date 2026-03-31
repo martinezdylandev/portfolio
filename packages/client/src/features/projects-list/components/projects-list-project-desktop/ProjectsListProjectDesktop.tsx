@@ -71,7 +71,7 @@ const ProjectsListProjectDesktop = ({ project, index }: ProjectsListProjectProps
                      letterIndex === replacedIndex ? (
                         <motion.img key={letterIndex} src={projectSecondaryLogo} className="projects-list__list-item-logo max-h-[140px] w-[140px] object-contain transition-all duration-800" alt={`${PROJECT_LOGO_ALT_TEXT} for ${project.project_name}`} />
                      ) : (
-                        <motion.span key={letterIndex} className="projects-list__list-item-letter font-hanken-grotesk text-[200px] font-bold leading-none transition-all duration-800 text-heading group-hover:text-white">
+                        <motion.span key={letterIndex} className="projects-list__list-item-letter font-hanken-grotesk text-[160px] font-bold leading-none transition-all duration-800 text-heading group-hover:text-white">
                            {letter}
                         </motion.span>
                      ),

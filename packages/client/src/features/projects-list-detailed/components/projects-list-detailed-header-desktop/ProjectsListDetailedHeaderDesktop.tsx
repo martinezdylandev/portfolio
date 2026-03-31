@@ -12,7 +12,7 @@ const ProjectsListDetailedHeaderDesktop = ({ animation }: ProjectsListDetailedHe
 
    return (
       <motion.div className="projects-list-detailed__header projects-list-detailed__header--desktop grid grid-cols-8 gap-y-25 w-full min-w-screen min-h-screen pt-25">
-         <motion.h3 initial={initial} whileInView={whileInView} transition={transition} viewport={viewport} className="projects-list-detailed__header-title col-start-1 col-span-7 font-hanken-grotesk text-[200px] mb-12.5 text-heading font-bold leading-none">
+         <motion.h3 initial={initial} whileInView={whileInView} transition={transition} viewport={viewport} className="projects-list-detailed__header-title col-start-3 col-span-7 font-hanken-grotesk text-[160px] text-right mb-12.5 text-heading font-bold leading-none">
             {PROJECTS_LIST_DETAILED_HEADER_TITLE}
          </motion.h3>
          <motion.span initial={initial} whileInView={whileInView} transition={transition} viewport={viewport} className="projects-list-detailed__header-description row-start-2 col-start-2 col-span-2 text-justify font-hanken-grotesk text-2xl text-body font-semibold leading-none">
