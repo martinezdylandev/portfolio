@@ -1,9 +1,9 @@
-import ContactForm from "../../features/contact-form/ContactForm";
+import ContactPageContent from "../../features/contact-page/ContactPageContent";
 
 const ContactPage = () => {
    return (
       <div className="contact-page">
-         <ContactForm />
+         <ContactPageContent />
       </div>
    );
 };
