@@ -33,14 +33,14 @@ const AboutMeCompact = (): React.ReactElement => {
                <motion.div initial={contentInitial} whileInView={contentWhileInView} transition={contentTransition} viewport={contentViewport} className="about-me-compact__content-inner flex flex-col gap-25 justify-center">
                   <div className="about-me-compact__content-row flex flex-col gap-5 md:flex-row md:gap-0 md:justify-evenly">
                      <span className="about-me-compact__content-text font-hanken-grotesk text-xl text-justify text-body md:max-w-1/2">{ABOUT_ME_CONTENT_TEXT_FIRST}</span>
-                     <MotionLink to="/about" role="button" aria-label={ABOUT_ME_ABOUT_DETAILED_NAVIGATION_ARIA_LABEL} className="about-me-compact__content-link about-me-compact__content-link--know-more flex items-center justify-center" whileHover={whileHover} whileTap={whileTap} transition={hoverTransition}>
-                        <span className="about-me-compact__content-link-text font-hanken-grotesk text-4xl cursor-pointer p-2.5 text-section bg-heading hover:bg-accent font-bold leading-none m-0">{ABOUT_ME_CONTENT_LINK_KNOW_MORE_TEXT}</span>
+                     <MotionLink to="/contact" role="button" aria-label={ABOUT_ME_ABOUT_CONTACT_NAVIGATION_ARIA_LABEL} className="about-me-compact__content-link about-me-compact__content-link--contact flex items-center justify-center" whileHover={whileHover} whileTap={whileTap} transition={hoverTransition}>
+                        <span className="about-me-compact__content-link-text font-hanken-grotesk text-4xl cursor-pointer p-2.5 text-section bg-heading hover:bg-accent font-bold leading-none m-0">{ABOUT_ME_CONTENT_LINK_CONTACT_TEXT}</span>
                      </MotionLink>
                   </div>
                   <div className="about-me-compact__content-row flex flex-col gap-5 md:flex-row md:gap-0 md:justify-evenly">
                      <span className="about-me-compact__content-text font-hanken-grotesk text-xl text-justify text-body md:max-w-1/2 md:order-2">{ABOUT_ME_CONTENT_TEXT_SECOND}</span>
-                     <MotionLink to="/contact" role="button" aria-label={ABOUT_ME_ABOUT_CONTACT_NAVIGATION_ARIA_LABEL} className="about-me-compact__content-link about-me-compact__content-link--contact flex items-center justify-center" whileHover={whileHover} whileTap={whileTap} transition={hoverTransition}>
-                        <span className="about-me-compact__content-link-text font-hanken-grotesk text-4xl cursor-pointer p-2.5 text-section bg-heading hover:bg-accent font-bold leading-none m-0">{ABOUT_ME_CONTENT_LINK_CONTACT_TEXT}</span>
+                     <MotionLink to="/about" role="button" aria-label={ABOUT_ME_ABOUT_DETAILED_NAVIGATION_ARIA_LABEL} className="about-me-compact__content-link about-me-compact__content-link--know-more flex items-center justify-center" whileHover={whileHover} whileTap={whileTap} transition={hoverTransition}>
+                        <span className="about-me-compact__content-link-text font-hanken-grotesk text-4xl cursor-pointer p-2.5 text-section bg-heading hover:bg-accent font-bold leading-none m-0">{ABOUT_ME_CONTENT_LINK_KNOW_MORE_TEXT}</span>
                      </MotionLink>
                   </div>
                </motion.div>
