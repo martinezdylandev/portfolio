@@ -1,0 +1,42 @@
+.contact-page-header--compact .contact-page-header__polaroid {
+   box-shadow: 0 12px 28px var(--palette-overlay);
+}
+
+.contact-page-header--compact .contact-page-header__marker {
+   position: absolute;
+   pointer-events: none;
+   inset: 0;
+}
+
+.contact-page-header--compact .contact-page-header__marker-arrow {
+   position: absolute;
+   width: 74px;
+   height: 54px;
+   left: 50%;
+   top: 50%;
+   transform: rotate(12deg);
+}
+
+.contact-page-header--compact .contact-page-header__marker-arrow path {
+   stroke: var(--color-accent);
+   stroke-width: 10;
+   fill: none;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+.contact-page-header--compact .contact-page-header__marker-name {
+   position: absolute;
+   left: 60%;
+   top: 80%;
+   transform: rotate(12deg);
+   font-family: "Comic Sans MS", "Bradley Hand", "Segoe Print", cursive;
+   font-weight: 700;
+   color: var(--color-accent);
+   font-size: 36px;
+   line-height: 1;
+   text-transform: uppercase;
+   letter-spacing: 0.02em;
+   text-shadow: none;
+   z-index: 1;
+}
