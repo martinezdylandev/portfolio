@@ -8,17 +8,15 @@ import { getContactFormDirection } from "./utils/getContactFormDirection";
 import { useContactFormAnimations } from "./utils/useContactFormAnimations";
 import { useContactFormState } from "./utils/useContactFormState";
 
-const ContactForm = ({ onLoad }: { onLoad?: () => void }): React.ReactElement => {
+const ContactForm = (): React.ReactElement => {
    const { activeForm, handleActiveFormUpdate } = useContactFormState();
    const { initial, whileInView, transition, viewport } = useContactFormAnimations();
 
    return (
-      <motion.div id="contact" onViewportEnter={() => onLoad?.()} data-direction={getContactFormDirection(activeForm)} className="contact-form relative min-h-screen min-w-screen bg-section py-25 px-0 md:px-6" aria-label={CONTACT_FORM_ARIA_LABEL}>
-         <motion.div initial={initial} whileInView={whileInView} transition={transition} viewport={viewport}>
-            <ContactFormTitle />
-            <ContactFormSelector activeForm={activeForm} handleActiveFormUpdate={handleActiveFormUpdate} />
-            <ContactFormActualForm activeForm={activeForm} />
-         </motion.div>
+      <motion.div id="contact" initial={initial} whileInView={whileInView} transition={transition} viewport={viewport} data-direction={getContactFormDirection(activeForm)} className="contact-form relative min-h-screen min-w-screen bg-section py-25 px-0 md:px-6" aria-label={CONTACT_FORM_ARIA_LABEL}>
+         <ContactFormTitle />
+         <ContactFormSelector activeForm={activeForm} handleActiveFormUpdate={handleActiveFormUpdate} />
+         <ContactFormActualForm activeForm={activeForm} />
       </motion.div>
    );
 };
