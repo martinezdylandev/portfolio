@@ -1,5 +1,7 @@
 export const CONTACT_FORM_ACTUAL_FORM_WRAPPER_ARIA_LABEL: string = "Forms wrapper";
 
+export const CONTACT_FORM_COMPACT_SEND_BUTTON_RESEND_TEXT: string = "RE-SEND";
+
 // Default form data
 export const CONTACT_FORM_DEFAULT_FORM_ARIA_LABEL: string = "Contact form";
 export const CONTACT_FORM_DEFAULT_FORM_H3_TEXT: string = "ANYTHING THAT YOU WANT TO TALK ABOUT? \nDO NOT DOUBT TO CONTACT ME.";
@@ -9,6 +11,9 @@ export const CONTACT_FORM_DEFAULT_FORM_PHONE_PLACEHOLDER: string = "PHONE NUMBER
 export const CONTACT_FORM_DEFAULT_FORM_EMAIL_PLACEHOLDER: string = "EMAIL";
 export const CONTACT_FORM_DEFAULT_FORM_MESSAGE_PLACEHOLDER: string = "MESSAGE (optional)";
 export const CONTACT_FORM_DEFAULT_FORM_SEND_BUTTON_TEXT: string = "SEND";
+export const CONTACT_FORM_DEFAULT_FORM_SEND_BUTTON_ERROR_TEXT: string = "ERROR";
+export const CONTACT_FORM_DEFAULT_FORM_SEND_BUTTON_ERROR_HOVER_TEXT: string = "SEND AGAIN";
+export const CONTACT_FORM_DEFAULT_FORM_SEND_BUTTON_SUCCESS_TEXT: string = "SENT";
 export const CONTACT_FORM_DEFAULT_FORM_NAME_ARIA_LABEL: string = "Contact form name";
 export const CONTACT_FORM_DEFAULT_FORM_PHONE_ARIA_LABEL: string = "Contact form phone";
 export const CONTACT_FORM_DEFAULT_FORM_EMAIL_ARIA_LABEL: string = "Contact form email";
@@ -23,14 +28,24 @@ export const CONTACT_FORM_JOB_FORM_PHONE_PLACEHOLDER: string = "PHONE NUMBER";
 export const CONTACT_FORM_JOB_FORM_EMAIL_PLACEHOLDER: string = "EMAIL";
 export const CONTACT_FORM_JOB_FORM_MESSAGE_PLACEHOLDER: string = "MESSAGE (optional)";
 export const CONTACT_FORM_JOB_FORM_SEND_BUTTON_TEXT: string = "SEND";
+export const CONTACT_FORM_JOB_FORM_SEND_BUTTON_ERROR_TEXT: string = "ERROR";
+export const CONTACT_FORM_JOB_FORM_SEND_BUTTON_ERROR_HOVER_TEXT: string = "SEND AGAIN";
+export const CONTACT_FORM_JOB_FORM_SEND_BUTTON_SUCCESS_TEXT: string = "SENT";
 export const CONTACT_FORM_JOB_FORM_NAME_ARIA_LABEL: string = "Job offer form name";
 export const CONTACT_FORM_JOB_FORM_PHONE_ARIA_LABEL: string = "Job offer form phone";
 export const CONTACT_FORM_JOB_FORM_EMAIL_ARIA_LABEL: string = "Job offer form email";
 export const CONTACT_FORM_JOB_FORM_MESSAGE_ARIA_LABEL: string = "Job offer form message";
+
+export interface TurnstileFormProps {
+   siteKey: string;
+   turnstileToken: string;
+   setTurnstileToken: (token: string) => void;
+}
 
 export type ContactFormFormFields = {
    name: string;
    phone: string;
    email: string;
    message: string;
+   turnstileToken?: string;
 };
