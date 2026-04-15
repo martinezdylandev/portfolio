@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import contactRoutes from "../routes/contact-routes/contactRoutes.js";
 import projectRoutes from "../routes/projectRoutes/projectRoutes.js";
 import { corsOptions } from "./data/serverData.js";
 
@@ -19,6 +20,7 @@ const clientDistPath = path.join(__dirname, "../../../client/dist");
 server.use(express.static(clientDistPath));
 
 /* API Routes */
+server.use("/api/contact", contactRoutes);
 server.use("/api/projects", projectRoutes);
 
 /* Catch all route */
