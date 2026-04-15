@@ -89,18 +89,36 @@
       color: transparent;
    }
 
-   .contact-form__actual-form-default-send-button button,
-   .contact-form__actual-form-job-send-button button {
+   .contact-form__actual-form-default-submit-button,
+   .contact-form__actual-form-job-submit-button {
       color: var(--text-heading);
       background-color: var(--bg-card);
       transition: all 0.5s ease-in-out;
    }
 
-   .contact-form__actual-form-default-send-button button:hover,
-   .contact-form__actual-form-job-send-button button:hover {
+   .contact-form__actual-form-default-submit-button:hover,
+   .contact-form__actual-form-job-submit-button:hover {
       color: white;
-      background-color: var(--color-active);
+      background-color: var(--color-accent);
+   }
 
+   .contact-form__actual-form-default-submit-button--error,
+   .contact-form__actual-form-job-submit-button--error {
+      color: var(--color-status-error);
+      background-color: var(--bg-card);
+   }
+
+   .contact-form__actual-form-default-submit-button--error:hover,
+   .contact-form__actual-form-job-submit-button--error:hover {
+      color: white;
+      background-color: var(--color-accent);
+   }
+
+   .contact-form__actual-form-default-submit-button--success,
+   .contact-form__actual-form-default-submit-button--success:hover,
+   .contact-form__actual-form-job-submit-button--success,
+   .contact-form__actual-form-job-submit-button--success:hover {
+      color: var(--color-status-success);
+      background-color: var(--bg-card);
    }
 }
-
