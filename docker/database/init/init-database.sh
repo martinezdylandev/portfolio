@@ -24,6 +24,7 @@ if [ "$TABLE_EXISTS" = "f" ]; then
     # Run schema migration
     echo "Running schema migration..."
     psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/001_initial_schema.sql
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/002_project_overview_media_type.sql
     
     # Run seed files
     echo "Running seed files..."
@@ -34,7 +35,7 @@ else
     echo "Projects table exists. Checking if seeds need to be updated..."
     
      # Check if we have the expected seed projects (must match seeds exactly)
-    EXPECTED_PROJECTS=("Portfolio Platform: Full‑Stack Showcase" "Belen Abdon: Building a Brand" "BV Architecture: Design in Motion" "En Marte: From Another Planet" "ISSAS: Alla Italiana")
+    EXPECTED_PROJECTS=("Portfolio Platform: Full‑Stack Showcase" "Julieta Abdon: An Artistic Vision" "ABV: Design in Motion" "En Marte: From Another Planet" "ISSAS: Alla Italiana")
     
     NEEDS_UPDATE=false
     MISSING_PROJECTS=()
