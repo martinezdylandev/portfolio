@@ -1,4 +1,4 @@
-import type { ProjectInterface } from "../../../../features/project/data/projectData";
+import type { ProjectInterface } from "../../../../types/projectInterface";
 
 export interface UseHeaderProjectsCommandProcessorProps {
    projects: ProjectInterface[] | null | undefined;

@@ -11,7 +11,7 @@ export interface UseCommonHoverAnimationsReturn {
 export const useCommonHoverAnimations = (): UseCommonHoverAnimationsReturn => {
    const whileHover = { scale: 1.05 };
    const whileTap = { scale: 0.85 };
-   const transition: Transition = { duration: 0.2, ease: "easeOut" as const };
+   const transition: Transition = { duration: 0.3, ease: "easeOut" as const };
 
    return {
       whileHover,
