@@ -11,7 +11,7 @@ describe("HeaderNavigation Component tests", () => {
       setupLightMode();
    });
 
-   test("should render HeaderNavigationDesktop component with the correct aria label", () => {
+   test("should render HeaderNavigationDesktop nav element with the correct aria label", () => {
       render(<HeaderNavigationDesktop />);
       const navElement = screen.getByLabelText(NAV_DESKTOP_ARIA_LABEL_TEXT);
       expect(navElement).toBeInTheDocument();

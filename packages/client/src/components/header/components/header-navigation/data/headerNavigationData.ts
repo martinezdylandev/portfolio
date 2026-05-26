@@ -1,6 +1,6 @@
 const NAV_ARIA_LABEL_TEXT: string = "Navigation container";
 const NAV_COMPACT_ARIA_LABEL_TEXT: string = "Header navigation compact";
-const NAV_DESKTOP_ARIA_LABEL_TEXT: string = "Header navigation compact";
+const NAV_DESKTOP_ARIA_LABEL_TEXT: string = "Header navigation desktop";
 
 const LIST_COMPACT_ARIA_LABEL_TEXT: string = "Compact navigation list";
 const LIST_DESKTOP_ARIA_LABEL_TEXT: string = "Desktop navigation list";

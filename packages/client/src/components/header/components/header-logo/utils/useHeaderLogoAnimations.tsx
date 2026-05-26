@@ -29,22 +29,22 @@ export const useHeaderLogoAnimations = (): UseHeaderLogoAnimationsReturn => {
    };
 
    const imageTransition: Transition = {
-      duration: isHovered ? 0.3 : 0.4,
+      duration: isHovered ? 0.3 : 0.3,
       ease: "easeInOut" as const,
    };
 
    const titleAnimation: TargetAndTransition = {
       top: isHovered ? "105%" : "1%",
-      opacity: isHovered ? [0, 0.7, 1] : [0.3, 0, 0],
+      opacity: isHovered ? [0, 0.1, 1] : [0.3, 0, 0],
    };
 
    const titleTransition: Transition = {
       top: {
-         duration: 0.4,
+         duration: 0.3,
          ease: "easeInOut" as const,
       },
       opacity: {
-         duration: 0.4,
+         duration: 0.3,
          times: [0, 0.9, 1],
          ease: "easeInOut" as const,
       },

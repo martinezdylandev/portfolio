@@ -1,5 +1,5 @@
 import React from "react";
-import type { ProjectInterface } from "../../../../../../features/project/data/projectData";
+import type { ProjectInterface } from "../../../../../../types/projectInterface";
 import { useDynamicInputStyling } from "../../../../../../utils/hooks/useDynamicInputStyling/useDynamicInputStyling";
 import useFetchData from "../../../../../../utils/hooks/useFetchData/useFetchData";
 import { useHeaderProjectsCommandProcessor } from "../../../../../../utils/hooks/useHeaderProjectsCommandProcessor/useHeaderProjectsCommandProcessor";
@@ -19,7 +19,7 @@ const HeaderNavigationRetro = (): React.ReactElement => {
    return (
       <div className="header-navigation-retro">
          <div className="header-navigation-retro__wrapper flex font-mono justify-evenly w-125">
-            <span className="header-navigation-retro__label font-bold text-[18px] text-accent">{SPAN_TEXT}</span>
+            <span className="header-navigation-retro__label font-bold text-[clamp(var(--font-size-body-sm),1.25vw,var(--font-size-body-lg))] text-accent">{SPAN_TEXT}</span>
             <form
                className="header-navigation-retro__form flex relative"
                onSubmit={(event) => {

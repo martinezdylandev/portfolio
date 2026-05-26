@@ -3,6 +3,7 @@ import { useHeaderVisibility } from "../../utils/hooks/useHeaderVisibility/useHe
 import HeaderLogo from "./components/header-logo/HeaderLogo";
 import HeaderModeSwitcher from "./components/header-mode-switcher/HeaderModeSwitcher";
 import HeaderNavigation from "./components/header-navigation/HeaderNavigation";
+import { HEADER_ARIA_LABEL } from "./data/headerData";
 
 const Header = (): React.ReactElement => {
    const isVisible = useHeaderVisibility();
@@ -19,10 +20,11 @@ const Header = (): React.ReactElement => {
             ${isVisible ? "transform-none" : "-translate-y-full"}
          `}
          id="header"
+         aria-label={HEADER_ARIA_LABEL}
       >
-         <div className="flex items-center justify-between p-6 px-auto">
-            <HeaderLogo />
+         <div className="header__content flex items-center justify-between p-6 px-auto">
             <HeaderNavigation />
+            <HeaderLogo />
             <HeaderModeSwitcher />
          </div>
       </header>
