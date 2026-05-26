@@ -6,6 +6,7 @@ import { resetModes, setupLightMode } from "./test-utils/testUtils";
 describe("Footer Component tests", () => {
    beforeAll(() => {
       vi.mock("../../../utils/hooks/useThemeContext/useThemeContext.tsx");
+      vi.mock("../../../utils/hooks/useMediaQuery/useMediaQuery.tsx");
       resetModes();
       setupLightMode();
    });
