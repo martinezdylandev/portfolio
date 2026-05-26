@@ -75,13 +75,13 @@ deploy_production() {
     git reset --hard origin/main
 
     echo -e "${BLUE}🐳 Stopping existing containers...${NC}"
-    docker compose -f "${COMPOSE_FILE}" down
+    docker compose --env-file .env.prod -f "${COMPOSE_FILE}" down
 
     echo -e "${BLUE}🏗️  Building production images...${NC}"
-    docker compose -f "${COMPOSE_FILE}" build --no-cache
+    docker compose --env-file .env.prod -f "${COMPOSE_FILE}" build --no-cache
 
     echo -e "${BLUE}🚀 Starting production containers...${NC}"
-    docker compose -f "${COMPOSE_FILE}" up -d
+    docker compose --env-file .env.prod -f "${COMPOSE_FILE}" up -d
 
     echo -e "${BLUE}🧹 Cleaning up unused Docker images...${NC}"
     docker image prune -f
@@ -94,7 +94,7 @@ show_deployment_summary() {
     echo "🎉 ${PROJECT_NAME} production deployment complete!"
     echo ""
     echo "📝 Container status:"
-    docker compose -f "${COMPOSE_FILE}" ps
+    docker compose --env-file .env.prod -f "${COMPOSE_FILE}" ps
     echo ""
 }
 

@@ -45,6 +45,7 @@ services:
       target: production
       args:
         VITE_API_BASE_URL: https://martinezdylan.dev/api
+        VITE_TURNSTILE_SITE_KEY: ${VITE_TURNSTILE_SITE_KEY}
     container_name: portfolio_client-prod
     restart: unless-stopped
     ports:
