@@ -24,7 +24,7 @@ server.use("/api/contact", contactRoutes);
 server.use("/api/projects", projectRoutes);
 
 /* Catch all route */
-server.get("*", (__, res) => {
+server.get("/{*splat}", (__, res) => {
    res.sendFile(path.join(clientDistPath, "index.html"));
 });
 
