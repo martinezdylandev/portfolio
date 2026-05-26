@@ -1,0 +1,31 @@
+export interface ProjectInterface {
+   project_id: number;
+   project_name: string;
+   project_description: string;
+   project_overview_main_media_type: "video" | "images";
+   project_overview_description_part_01: string;
+   project_overview_description_part_02: string;
+   project_overview_technologies: string;
+   project_overview_duration: string;
+   project_features: string;
+   project_challenges: string;
+   project_final_results_description_part_01: string;
+   project_final_results_description_part_02: string;
+   project_final_results_stat_01_title: string;
+   project_final_results_stat_01: string;
+   project_final_results_stat_02_title: string;
+   project_final_results_stat_02: string;
+   project_final_results_stat_03_title: string;
+   project_final_results_stat_03: string;
+   project_timeline_event_01_title: string;
+   project_timeline_event_01: string;
+   project_timeline_event_02_title: string;
+   project_timeline_event_02: string;
+   project_timeline_event_03_title: string;
+   project_timeline_event_03: string;
+   project_timeline_event_04_title: string;
+   project_timeline_event_04: string;
+   project_timeline_event_05_title: string;
+   project_timeline_event_05: string;
+   project_external_url: string | null;
+}
