@@ -13,35 +13,6 @@ const PROJECTS_LIST_DETAILED_HEADER_SPAN_04: string = "Rick Rubin, The Creative 
 const PROJECTS_LIST_DETAILED_HEADER_SPAN_05: string = "I approach every idea with curiosity and care, shaping it into something real through the craft I love: software development.";
 const PROJECTS_LIST_DETAILED_HEADER_SPAN_06: string = "CARE & CURIOSITY";
 
-export interface ProjectInterface {
-   project_id: number;
-   project_name: string;
-   project_description: string;
-   project_overview_description_part_01: string;
-   project_overview_description_part_02: string;
-   project_overview_technologies: string;
-   project_overview_duration: string;
-   project_features: string;
-   project_challenges: string;
-   project_final_results_description_part_01: string;
-   project_final_results_description_part_02: string;
-   project_final_results_stat_01_title: string;
-   project_final_results_stat_01: string;
-   project_final_results_stat_02_title: string;
-   project_final_results_stat_02: string;
-   project_final_results_stat_03_title: string;
-   project_final_results_stat_03: string;
-   project_timeline_event_01_title: string;
-   project_timeline_event_01: string;
-   project_timeline_event_02_title: string;
-   project_timeline_event_02: string;
-   project_timeline_event_03_title: string;
-   project_timeline_event_03: string;
-   project_timeline_event_04_title: string;
-   project_timeline_event_04: string;
-   project_timeline_event_05_title: string;
-   project_timeline_event_05: string;
-   project_external_url: string | null;
-}
+export type { ProjectInterface } from "../../../types/projectInterface";
 
 export { PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT, PROJECTS_LIST_DETAILED_HEADER_SPAN_01, PROJECTS_LIST_DETAILED_HEADER_SPAN_02, PROJECTS_LIST_DETAILED_HEADER_SPAN_03, PROJECTS_LIST_DETAILED_HEADER_SPAN_04, PROJECTS_LIST_DETAILED_HEADER_SPAN_05, PROJECTS_LIST_DETAILED_HEADER_SPAN_06, PROJECTS_LIST_DETAILED_HEADER_TITLE, PROJECTS_LIST_ERROR_ARIA_LABEL, PROJECTS_LIST_ERROR_TEXT, PROJECTS_LIST_LOADING_ARIA_LABEL, PROJECTS_LIST_LOADING_TEXT, PROJECTS_LIST_NO_DATA_TEXT, PROJECTS_LIST_UL_TEST_ID };
