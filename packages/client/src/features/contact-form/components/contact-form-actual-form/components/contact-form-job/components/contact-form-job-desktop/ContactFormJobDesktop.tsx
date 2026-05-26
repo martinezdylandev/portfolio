@@ -70,13 +70,13 @@ const ContactFormJobDesktop = ({ activeForm, siteKey, turnstileToken, setTurnsti
 
    return (
       <div className={`contact-form__actual-form-job contact-form__actual-form-job--${activeForm === "jobForm" ? "active" : "inactive"} hidden md:block`} aria-hidden={activeForm === "jobForm" ? "false" : "true"} aria-labelledby="contact-form-job-selector">
-         <h3 className="contact-form__actual-form-job-title pt-12 text-base md:text-2xl font-hanken-grotesk font-bold whitespace-pre-wrap text-muted">{CONTACT_FORM_JOB_FORM_H3_TEXT}</h3>
+         <h3 className="contact-form__actual-form-job-title pt-12 text-[clamp(var(--font-size-body),2vw,var(--font-size-heading-sm))] font-hanken-grotesk font-bold whitespace-pre-wrap text-muted">{CONTACT_FORM_JOB_FORM_H3_TEXT}</h3>
          <form className="contact-form__actual-form-job-form" data-testid="form" noValidate action="/form-sent" method="POST" onSubmit={handleSubmit(onSubmit)}>
             <div className="contact-form__actual-form-job-fields my-12 flex flex-col gap-12 md:my-24 md:grid md:grid-cols-2 md:gap-24">
                <div className="contact-form__actual-form-job-input-field relative">
                   <label htmlFor="name-job-desktop" className="contact-form__actual-form-job-label"></label>
                   <input
-                     className={`contact-form__actual-form-job-input text-xl w-9/10 md:text-2xl md:w-full font-hanken-grotesk transition-all duration-500 font-bold ${errors.name ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
+                     className={`contact-form__actual-form-job-input text-[clamp(var(--font-size-heading-xs),2vw,var(--font-size-heading-sm))] w-9/10 md:w-full font-hanken-grotesk transition-all duration-300 font-bold ${errors.name ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
                      {...register("name", {
                         required: "Name is required",
                         validate: {
@@ -109,7 +109,7 @@ const ContactFormJobDesktop = ({ activeForm, siteKey, turnstileToken, setTurnsti
                <div className="contact-form__actual-form-job-input-field relative">
                   <label htmlFor="phone-job-desktop" className="contact-form__actual-form-job-label"></label>
                   <input
-                     className={`contact-form__actual-form-job-input text-2xl font-hanken-grotesk w-9/10 md:w-full transition-all duration-500 font-bold ${errors.phone ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
+                     className={`contact-form__actual-form-job-input text-heading-sm font-hanken-grotesk w-9/10 md:w-full transition-all duration-300 font-bold ${errors.phone ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
                      {...register("phone", {
                         required: "Phone number is required",
                         validate: {
@@ -143,7 +143,7 @@ const ContactFormJobDesktop = ({ activeForm, siteKey, turnstileToken, setTurnsti
                <div className="contact-form__actual-form-job-input-field relative">
                   <label htmlFor="email-job-desktop" className="contact-form__actual-form-job-label"></label>
                   <input
-                     className={`contact-form__actual-form-job-input text-xl md:text-2xl font-hanken-grotesk w-9/10 md:w-full transition-all duration-500 font-bold ${errors.email ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
+                     className={`contact-form__actual-form-job-input text-[clamp(var(--font-size-heading-xs),2vw,var(--font-size-heading-sm))] font-hanken-grotesk w-9/10 md:w-full transition-all duration-300 font-bold ${errors.email ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
                      {...register("email", {
                         required: "Email is required",
                         validate: {
@@ -174,7 +174,7 @@ const ContactFormJobDesktop = ({ activeForm, siteKey, turnstileToken, setTurnsti
                <div className="contact-form__actual-form-job-input-field relative">
                   <label htmlFor="message-job-desktop" className="contact-form__actual-form-job-label"></label>
                   <textarea
-                     className={`contact-form__actual-form-job-textarea text-2xl font-hanken-grotesk w-9/10 md:w-full transition-all duration-500 resize-none max-h-9 font-bold ${errors.message ? "contact-form__actual-form-job-input--error" : ""}`}
+                     className={`contact-form__actual-form-job-textarea text-heading-sm font-hanken-grotesk w-9/10 md:w-full transition-all duration-300 resize-none max-h-9 font-bold ${errors.message ? "contact-form__actual-form-job-input--error" : ""}`}
                      placeholder={CONTACT_FORM_JOB_FORM_MESSAGE_PLACEHOLDER}
                      aria-label={CONTACT_FORM_JOB_FORM_MESSAGE_ARIA_LABEL}
                      id="message-job-desktop"
@@ -196,7 +196,7 @@ const ContactFormJobDesktop = ({ activeForm, siteKey, turnstileToken, setTurnsti
             </div>
             <ContactFormTurnstile siteKey={siteKey} onTokenChange={setTurnstileToken} onExpired={() => setTurnstileToken("")} />
             <div className="contact-form__actual-form-job-send-button flex flex-col items-center gap-4 pb-12">
-               <button className={`contact-form__actual-form-job-submit-button text-2xl font-hanken-grotesk font-bold p-2.5 border-0 cursor-pointer rounded-full w-1/5 disabled:opacity-75 disabled:cursor-not-allowed overflow-hidden ${submitError || submitSuccess ? "" : " md:w-1/5 hover:w-1/4 disabled:opacity-75"}${submitError ? " contact-form__actual-form-job-submit-button--error" : submitSuccess ? " contact-form__actual-form-job-submit-button--success" : ""}`} type="submit" disabled={isSubmitting || !!submitSuccess} aria-busy={isSubmitting ? "true" : "false"} onMouseEnter={() => setIsHoveringButton(true)} onMouseLeave={() => setIsHoveringButton(false)}>
+               <button className={`contact-form__actual-form-job-submit-button text-heading-xs font-hanken-grotesk font-bold p-2.5 border-0 cursor-pointer rounded-full w-1/5 disabled:opacity-75 disabled:cursor-not-allowed overflow-hidden ${submitError || submitSuccess ? "" : " md:w-1/5 hover:w-1/4 disabled:opacity-75"}${submitError ? " contact-form__actual-form-job-submit-button--error" : submitSuccess ? " contact-form__actual-form-job-submit-button--success" : ""}`} type="submit" disabled={isSubmitting || !!submitSuccess} aria-busy={isSubmitting ? "true" : "false"} onMouseEnter={() => setIsHoveringButton(true)} onMouseLeave={() => setIsHoveringButton(false)}>
                   <AnimatePresence mode="wait" initial={false}>
                      <motion.span className={` ${submitError ? (isHoveringButton ? "error-is-hovering" : "error") : ""}`} key={isSubmitting ? "sending" : submitError ? (isHoveringButton ? "error-hover" : "error") : submitSuccess ? "success" : "idle"} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
                         {isSubmitting ? "SENDING..." : submitError ? (isHoveringButton ? CONTACT_FORM_JOB_FORM_SEND_BUTTON_ERROR_HOVER_TEXT : CONTACT_FORM_JOB_FORM_SEND_BUTTON_ERROR_TEXT) : submitSuccess ? CONTACT_FORM_JOB_FORM_SEND_BUTTON_SUCCESS_TEXT : CONTACT_FORM_JOB_FORM_SEND_BUTTON_TEXT}

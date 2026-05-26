@@ -68,13 +68,13 @@ const ContactFormJobCompact = ({ activeForm, siteKey, turnstileToken, setTurnsti
 
    return (
       <div className={`contact-form__actual-form-job contact-form__actual-form-job--${activeForm === "jobForm" ? "active" : "inactive"} md:hidden`} aria-hidden={activeForm === "jobForm" ? "false" : "true"} aria-labelledby="contact-form-job-selector">
-         <h3 className="contact-form__actual-form-job-title pt-12 text-base font-hanken-grotesk font-bold whitespace-pre-wrap text-muted">{CONTACT_FORM_JOB_FORM_H3_TEXT}</h3>
+         <h3 className="contact-form__actual-form-job-title pt-12 text-body-md font-hanken-grotesk font-bold whitespace-pre-wrap text-muted">{CONTACT_FORM_JOB_FORM_H3_TEXT}</h3>
          <form className="contact-form__actual-form-job-form" data-testid="form" noValidate action="/form-sent" method="POST" onSubmit={handleSubmit(onSubmit)}>
             <div className="contact-form__actual-form-job-fields my-12 flex flex-col gap-12">
                <div className="contact-form__actual-form-job-input-field relative">
                   <label htmlFor="name-job-compact" className="contact-form__actual-form-job-label"></label>
                   <input
-                     className={`contact-form__actual-form-job-input text-xl w-9/10 font-hanken-grotesk transition-all duration-500 font-bold ${errors.name ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
+                     className={`contact-form__actual-form-job-input text-[clamp(var(--font-size-body),2.5vw,var(--font-size-heading-xs))] w-9/10 font-hanken-grotesk transition-all duration-300 font-bold ${errors.name ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
                      {...register("name", {
                         required: "Name is required",
                         validate: {
@@ -107,7 +107,7 @@ const ContactFormJobCompact = ({ activeForm, siteKey, turnstileToken, setTurnsti
                <div className="contact-form__actual-form-job-input-field relative">
                   <label htmlFor="phone-job-compact" className="contact-form__actual-form-job-label"></label>
                   <input
-                     className={`contact-form__actual-form-job-input text-xl font-hanken-grotesk w-9/10 transition-all duration-500 font-bold ${errors.phone ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
+                     className={`contact-form__actual-form-job-input text-[clamp(var(--font-size-body),2.5vw,var(--font-size-heading-xs))] font-hanken-grotesk w-9/10 transition-all duration-300 font-bold ${errors.phone ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
                      {...register("phone", {
                         required: "Phone number is required",
                         validate: {
@@ -141,7 +141,7 @@ const ContactFormJobCompact = ({ activeForm, siteKey, turnstileToken, setTurnsti
                <div className="contact-form__actual-form-job-input-field relative">
                   <label htmlFor="email-job-compact" className="contact-form__actual-form-job-label"></label>
                   <input
-                     className={`contact-form__actual-form-job-input text-xl font-hanken-grotesk w-9/10 transition-all duration-500 font-bold ${errors.email ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
+                     className={`contact-form__actual-form-job-input text-[clamp(var(--font-size-body),2.5vw,var(--font-size-heading-xs))] font-hanken-grotesk w-9/10 transition-all duration-300 font-bold ${errors.email ? "contact-form__actual-form-job-input--error" : "contact-form__actual-form-job-input--valid"}`}
                      {...register("email", {
                         required: "Email is required",
                         validate: {
@@ -172,7 +172,7 @@ const ContactFormJobCompact = ({ activeForm, siteKey, turnstileToken, setTurnsti
                <div className="contact-form__actual-form-job-input-field relative">
                   <label htmlFor="message-job-compact" className="contact-form__actual-form-job-label"></label>
                   <textarea
-                     className={`contact-form__actual-form-job-textarea text-xl font-hanken-grotesk w-9/10 transition-all duration-500 resize-none max-h-9 font-bold ${errors.message ? "contact-form__actual-form-job-input--error" : ""}`}
+                     className={`contact-form__actual-form-job-textarea text-[clamp(var(--font-size-body),2.5vw,var(--font-size-heading-xs))] font-hanken-grotesk w-9/10 transition-all duration-300 resize-none max-h-9 font-bold ${errors.message ? "contact-form__actual-form-job-input--error" : ""}`}
                      placeholder={CONTACT_FORM_JOB_FORM_MESSAGE_PLACEHOLDER}
                      id="message-job-compact"
                      aria-label={CONTACT_FORM_JOB_FORM_MESSAGE_ARIA_LABEL}
@@ -194,7 +194,7 @@ const ContactFormJobCompact = ({ activeForm, siteKey, turnstileToken, setTurnsti
             </div>
             <ContactFormTurnstile siteKey={siteKey} onTokenChange={setTurnstileToken} onExpired={() => setTurnstileToken("")} />
             <div className="contact-form__actual-form-job-send-button flex flex-col items-center gap-4 pb-12">
-               <button className={`contact-form__actual-form-job-submit-button text-2xl font-hanken-grotesk font-bold p-2.5 border-0 cursor-pointer rounded-full w-3/4 disabled:opacity-75 disabled:cursor-not-allowed overflow-hidden ${submitError || submitSuccess ? "" : " disabled:opacity-75"}${submitError ? " contact-form__actual-form-job-submit-button--error" : submitSuccess ? " contact-form__actual-form-job-submit-button--success" : ""}`} type="submit" disabled={isSubmitting || !!submitSuccess} aria-busy={isSubmitting ? "true" : "false"}>
+               <button className={`contact-form__actual-form-job-submit-button text-heading-sm font-hanken-grotesk font-bold p-2.5 border-0 cursor-pointer rounded-full w-2/4 disabled:opacity-75 disabled:cursor-not-allowed overflow-hidden ${submitError || submitSuccess ? "" : " disabled:opacity-75"}${submitError ? " contact-form__actual-form-job-submit-button--error" : submitSuccess ? " contact-form__actual-form-job-submit-button--success" : ""}`} type="submit" disabled={isSubmitting || !!submitSuccess} aria-busy={isSubmitting ? "true" : "false"}>
                   <span>{isSubmitting ? "SENDING..." : submitError ? CONTACT_FORM_COMPACT_SEND_BUTTON_RESEND_TEXT : submitSuccess ? CONTACT_FORM_JOB_FORM_SEND_BUTTON_SUCCESS_TEXT : CONTACT_FORM_JOB_FORM_SEND_BUTTON_TEXT}</span>
                </button>
                {submitError && (

@@ -1,8 +1,12 @@
 import React from "react";
-import { CONTACT_FORM_TITLE } from "./data/contactFormTitleData";
+import { useMediaQuery } from "../../../../utils/hooks/useMediaQuery/useMediaQuery";
+import ContactFormTitleCompact from "./components/contact-form-title-compact/ContactFormTitleCompact";
+import ContactFormTitleDesktop from "./components/contact-form-title-desktop/ContactFormTitleDesktop";
 
 const ContactFormTitle = (): React.ReactElement => {
-   return <h2 className="text-6xl text-center md:text-[160px] md:text-left font-hanken-grotesk font-bold mb-12 text-heading contact-form__title">{CONTACT_FORM_TITLE}</h2>;
+   const isDesktop = useMediaQuery("(min-width: 768px)");
+
+   return isDesktop ? <ContactFormTitleDesktop /> : <ContactFormTitleCompact />;
 };
 
 export default ContactFormTitle;
