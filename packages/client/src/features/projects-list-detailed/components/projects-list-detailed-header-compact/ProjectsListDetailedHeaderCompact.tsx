@@ -15,7 +15,7 @@ const ProjectsListDetailedHeaderCompact = ({ animation }: ProjectsListDetailedHe
          <motion.h3 initial={initial} whileInView={whileInView} transition={transition} viewport={viewport} className="projects-list-detailed__header-title font-hanken-grotesk text-center text-[clamp(var(--font-size-display-sm),12vw,var(--font-size-display-xl))] mb-12.5 text-heading font-bold leading-none">
             {PROJECTS_LIST_DETAILED_HEADER_TITLE}
          </motion.h3>
-         <motion.div className="flex flex-col min-w-screen min-h-screen gap-6 px-6">
+         <motion.div className="flex flex-col min-w-screen gap-6 px-6">
             <motion.span initial={initial} whileInView={whileInView} transition={transition} viewport={viewport} className="projects-list-detailed__header-description text-left font-hanken-grotesk text-[clamp(var(--font-size-heading-sm),6vw,var(--font-size-heading-xl))] text-heading font-bold leading-none">
                {PROJECTS_LIST_DETAILED_HEADER_SPAN_02}
             </motion.span>
