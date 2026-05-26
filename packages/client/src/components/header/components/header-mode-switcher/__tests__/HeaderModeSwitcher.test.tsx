@@ -1,8 +1,9 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { vi } from "vitest";
+import { useMediaQuery } from "../../../../../utils/hooks/useMediaQuery/useMediaQuery";
 import HeaderModeSwitcher from "../HeaderModeSwitcher";
-import { BUTTON_ARIA_LABEL_TEXT, DARK_MODE_ALT_TEXT, LIGHT_MODE_ALT_TEXT } from "../data/headerModeSwitcherData";
-import { resetModes, setupDarkMode, setupLightMode } from "./test-utils/testUtils";
+import { BUTTON_ARIA_LABEL_TEXT } from "../data/headerModeSwitcherData";
+import { resetModes, setupLightMode } from "./test-utils/testUtils";
 
 describe("HeaderModeSwitcher component tests", () => {
    beforeAll(() => {
@@ -12,51 +13,19 @@ describe("HeaderModeSwitcher component tests", () => {
       setupLightMode();
    });
 
-   test("should render the button element with the correct aria-label", () => {
+   test("should render HeaderModeSwitcherCompact on small screens", () => {
+      vi.mocked(useMediaQuery).mockReturnValue(false);
       render(<HeaderModeSwitcher />);
-      const button = screen.getByRole("button", { name: BUTTON_ARIA_LABEL_TEXT });
-      expect(button).toBeInTheDocument();
+      const buttonElement = screen.getByRole("button", { name: BUTTON_ARIA_LABEL_TEXT });
+      expect(buttonElement).toBeInTheDocument();
+      expect(buttonElement).toHaveClass("h-10", "w-10");
    });
 
-   test("should render the image element using the image role", () => {
+   test("should render HeaderModeSwitcherDesktop on large screens", () => {
+      vi.mocked(useMediaQuery).mockReturnValue(true);
       render(<HeaderModeSwitcher />);
-      const image = screen.getByRole("img");
-      expect(image).toBeInTheDocument();
-   });
-
-   test("should render the image element with the correct class when clicking on button", async () => {
-      render(<HeaderModeSwitcher />);
-      const button = screen.getByRole("button", { name: BUTTON_ARIA_LABEL_TEXT });
-      expect(button).toBeInTheDocument();
-
-      const image = screen.getByRole("img");
-      expect(image).toBeInTheDocument();
-
-      fireEvent.click(button);
-
-      await waitFor(() => {
-         expect(image).toHaveClass("toggle-mode-animation");
-      });
-
-      await waitFor(
-         () => {
-            expect(image).not.toHaveClass("toggle-mode-animation");
-         },
-         { timeout: 2000 },
-      );
-   });
-
-   test("should render the light mode image with the correct alt text", () => {
-      setupLightMode();
-      render(<HeaderModeSwitcher />);
-      const lightModeImage = screen.getByAltText(LIGHT_MODE_ALT_TEXT);
-      expect(lightModeImage).toBeInTheDocument();
-   });
-
-   test("should render the dark mode image with the correct alt text", () => {
-      setupDarkMode();
-      render(<HeaderModeSwitcher />);
-      const darkModeImage = screen.getByAltText(DARK_MODE_ALT_TEXT);
-      expect(darkModeImage).toBeInTheDocument();
+      const buttonElement = screen.getByRole("button", { name: BUTTON_ARIA_LABEL_TEXT });
+      expect(buttonElement).toBeInTheDocument();
+      expect(buttonElement).toHaveClass("h-12", "w-12");
    });
 });

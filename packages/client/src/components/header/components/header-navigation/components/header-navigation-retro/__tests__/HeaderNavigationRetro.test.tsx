@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import HeaderNavigationRetro from "../HeaderNavigationRetro";
 import { FORM_ARIA_LABEL_TEXT, INPUT_ARIA_LABEL_TEXT, SPAN_TEXT, WRAPPER_ARIA_LABEL_TEXT } from "../data/headerNavigatonRetroData";
-import { mockProjects, resetModes, setupLightMode } from "./test-utils/test-utils";
+import { mockProjects, resetModes, setupLightMode } from "./test-utils/testUtils";
 
 vi.mock("react-router", () => ({
    ...vi.importActual("react-router"),
