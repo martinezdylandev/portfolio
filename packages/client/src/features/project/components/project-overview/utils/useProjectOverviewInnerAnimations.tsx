@@ -8,7 +8,7 @@ export interface UseProjectOverviewInnerAnimationsReturn {
 }
 
 export const useProjectOverviewInnerAnimations = (): UseProjectOverviewInnerAnimationsReturn => {
-   const initial: TargetAndTransition = { y: 50, opacity: 0 };
+   const initial: TargetAndTransition = { y: 25, opacity: 0 };
    const whileInView: TargetAndTransition = { y: 0, opacity: 1 };
    const transition: Transition = { duration: 0.5, ease: "easeOut" as const };
    const viewport: ViewportOptions = { once: true, amount: 0.2 };

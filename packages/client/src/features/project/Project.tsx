@@ -1,5 +1,6 @@
-import { useParams } from "react-router";
 import HttpErrorFallback from "@/components/http-error-fallback/HttpErrorFallback";
+import React from "react";
+import { useParams } from "react-router";
 import useFetchData from "../../utils/hooks/useFetchData/useFetchData";
 import { useMediaQuery } from "../../utils/hooks/useMediaQuery/useMediaQuery";
 import ProjectMainCover from "./components/project-main-cover/ProjectMainCover";
@@ -11,7 +12,7 @@ import type { ProjectInterface } from "./data/projectData";
 import { PROJECT_ARIA_LABEL, PROJECT_ERROR_ARIA_LABEL, PROJECT_LOADING_ARIA_LABEL, PROJECT_LOADING_TEXT, PROJECT_NO_DATA_TEXT } from "./data/projectData";
 import { buildProjectApiPath } from "./utils/buildProjectApiPath";
 
-const Project = () => {
+const Project = (): React.ReactElement => {
    const { projectName } = useParams<{ projectName: string }>();
    const apiPath = buildProjectApiPath(projectName);
    const { data: project, loading, error } = useFetchData<ProjectInterface>(apiPath);
@@ -19,9 +20,11 @@ const Project = () => {
 
    if (loading) {
       return (
-         <span className="project__loading-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECT_LOADING_ARIA_LABEL}>
-            {PROJECT_LOADING_TEXT}
-         </span>
+         <div role="status" aria-live="polite">
+            <span className="project__loading-message text-center text-heading-sm font-semibold pt-48 text-heading" aria-label={PROJECT_LOADING_ARIA_LABEL}>
+               {PROJECT_LOADING_TEXT}
+            </span>
+         </div>
       );
    }
 
@@ -31,9 +34,11 @@ const Project = () => {
 
    if (!project) {
       return (
-         <span className="project__error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECT_ERROR_ARIA_LABEL}>
-            {PROJECT_NO_DATA_TEXT}
-         </span>
+         <div role="status" aria-live="polite">
+            <span className="project__error-message text-center text-heading-sm font-semibold pt-48 text-heading" aria-label={PROJECT_ERROR_ARIA_LABEL}>
+               {PROJECT_NO_DATA_TEXT}
+            </span>
+         </div>
       );
    }
 
