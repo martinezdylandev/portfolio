@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import type { ProjectInterface } from "../../../../../../types/projectInterface";
 import { useDynamicInputStyling } from "../../../../../../utils/hooks/useDynamicInputStyling/useDynamicInputStyling";
 import useFetchData from "../../../../../../utils/hooks/useFetchData/useFetchData";
@@ -48,9 +49,9 @@ const HeaderNavigationRetro = (): React.ReactElement => {
                <ul aria-label="projects-menu-button" className={`header__navigation-retro-list absolute origin-top top-[27px] left-[-50px] w-[600px] grid grid-cols-3 grid-rows-2 ${theme === "light" ? "bg-[#B6CCFE]" : "bg-[#E2EAFC]"} visible ${projectsAreClosing ? "header__navigation-retro-list--closing" : ""}`}>
                   {projects.map((project) => (
                      <li key={project.project_id} className={`header__navigation-retro-list-item p-2.5 hover:${theme === "light" ? "bg-[#ABC4FF]" : "bg-[#EDF2FB]"} cursor-pointer`}>
-                        <a href={`/projects/${project.project_name}`} className={`header__navigation-retro-list-link block w-full font-mono ${theme === "light" ? "text-[#E2EAFC]" : "text-[#B6CCFE]"}`}>
+                        <Link to={`/projects/${project.project_name}`} className={`header__navigation-retro-list-link block w-full font-mono ${theme === "light" ? "text-[#E2EAFC]" : "text-[#B6CCFE]"}`}>
                            <span className="header__navigation-retro-list-link-text block w-full">{formatName(project.project_name)}</span>
-                        </a>
+                        </Link>
                      </li>
                   ))}
                </ul>

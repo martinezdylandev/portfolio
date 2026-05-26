@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { useMediaQuery } from "../../../../utils/hooks/useMediaQuery/useMediaQuery";
 import HeaderLogoCompact from "./components/header-logo-compact/HeaderLogoCompact";
 import HeaderLogoDesktop from "./components/header-logo-desktop/HeaderLogoDesktop";
@@ -8,9 +9,9 @@ const HeaderLogo = (): React.ReactElement => {
 
    return (
       <div className="header__logo order-2 md:order-1">
-         <a href="/" className="header__logo-link">
+         <Link to="/" className="header__logo-link">
             {isDesktop ? <HeaderLogoDesktop /> : <HeaderLogoCompact />}
-         </a>
+         </Link>
       </div>
    );
 };

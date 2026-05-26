@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import "./styles/default-navigation-animations.css";
 
 import { HEADER_NAVIGATION_LINKS, LIST_DESKTOP_ARIA_LABEL_TEXT, NAV_DESKTOP_ARIA_LABEL_TEXT } from "../../data/headerNavigationData";
@@ -9,9 +10,9 @@ const HeaderNavigationDesktop = (): React.ReactElement => {
          <ul className="header-navigation-desktop__list flex justify-center gap-5" aria-label={LIST_DESKTOP_ARIA_LABEL_TEXT}>
             {HEADER_NAVIGATION_LINKS.slice(1).map((link) => (
                <li key={link.HREF} className="header-navigation-desktop__item">
-                  <a href={link.HREF} aria-label={link.ARIA_LABEL} className="header-navigation-desktop__link">
+                  <Link to={link.HREF} aria-label={link.ARIA_LABEL} className="header-navigation-desktop__link">
                      <span className="header-navigation-desktop__link-text text-heading hover:text-accent font-hanken-grotesk font-bold text-[clamp(var(--font-size-body),1.125rem,var(--font-size-heading-xs))] transition-colors duration-300 ease-in-out cursor-pointer">{link.LABEL}</span>
-                  </a>
+                  </Link>
                </li>
             ))}
          </ul>
