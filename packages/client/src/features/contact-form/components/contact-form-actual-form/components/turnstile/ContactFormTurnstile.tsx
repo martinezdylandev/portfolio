@@ -13,7 +13,7 @@ const ContactFormTurnstile = ({ siteKey, onTokenChange, onExpired }: ContactForm
 
    return (
       <div className="contact-form__turnstile flex justify-center pb-4">
-         <Turnstile siteKey={siteKey} onSuccess={(token) => onTokenChange(token)} onExpire={onExpired} onError={onExpired} options={{ theme: theme === "light" ? "light" : "dark" }} />
+         <Turnstile siteKey={siteKey} onSuccess={(token) => onTokenChange(token)} onExpire={onExpired} onError={onExpired} options={{ theme: theme === "light" ? "light" : "dark", appearance: "interaction-only" }} />
       </div>
    );
 };
