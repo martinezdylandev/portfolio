@@ -1,4 +1,5 @@
 import HttpErrorFallback from "@/components/http-error-fallback/HttpErrorFallback";
+import React from "react";
 import useFetchData from "../../utils/hooks/useFetchData/useFetchData";
 import { useMediaQuery } from "../../utils/hooks/useMediaQuery/useMediaQuery";
 import ProjectsListDetailedHeaderCompact from "./components/projects-list-detailed-header-compact/ProjectsListDetailedHeaderCompact";
@@ -10,16 +11,18 @@ import type { ProjectInterface } from "./data/projectsListDetailedData";
 import { PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT, PROJECTS_LIST_ERROR_ARIA_LABEL, PROJECTS_LIST_LOADING_ARIA_LABEL, PROJECTS_LIST_LOADING_TEXT, PROJECTS_LIST_NO_DATA_TEXT, PROJECTS_LIST_UL_TEST_ID } from "./data/projectsListDetailedData";
 import { useProjectsListDetailedHeaderAnimations } from "./utils/useProjectsListDetailedAnimations";
 
-const ProjectsListDetailed = () => {
+const ProjectsListDetailed = (): React.ReactElement => {
    const { data: projects, loading, error } = useFetchData<ProjectInterface[]>("projects");
    const headerAnimation = useProjectsListDetailedHeaderAnimations();
    const isDesktop = useMediaQuery("(min-width: 1024px)");
 
    if (loading) {
       return (
-         <span className="projects-list-detailed__loading-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECTS_LIST_LOADING_ARIA_LABEL}>
-            {PROJECTS_LIST_LOADING_TEXT}
-         </span>
+         <div role="status" aria-live="polite">
+            <span className="projects-list-detailed__loading-message text-center text-[clamp(var(--font-size-heading-xs),3vw,var(--font-size-heading))] font-semibold pt-48 text-heading" aria-label={PROJECTS_LIST_LOADING_ARIA_LABEL}>
+               {PROJECTS_LIST_LOADING_TEXT}
+            </span>
+         </div>
       );
    }
 
@@ -29,9 +32,11 @@ const ProjectsListDetailed = () => {
 
    if (!projects || !Array.isArray(projects)) {
       return (
-         <span className="projects-list-detailed__error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECTS_LIST_ERROR_ARIA_LABEL}>
-            {PROJECTS_LIST_NO_DATA_TEXT}
-         </span>
+         <div role="status" aria-live="polite">
+            <span className="projects-list-detailed__error-message text-center text-[clamp(var(--font-size-heading-xs),3vw,var(--font-size-heading))] font-semibold pt-48 text-heading" aria-label={PROJECTS_LIST_ERROR_ARIA_LABEL}>
+               {PROJECTS_LIST_NO_DATA_TEXT}
+            </span>
+         </div>
       );
    }
 

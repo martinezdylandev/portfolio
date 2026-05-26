@@ -1,4 +1,4 @@
-import type { ProjectInterface } from "../../../project/data/projectData";
+import type { ProjectInterface } from "../../../../types/projectInterface";
 
 const DUMMY_LOGO_IMAGE_URL_1: string = "projectLists/south_america_24dp_EDF2FB_FILL0_wght400_GRAD0_opsz24.svg";
 const PROJECT_LOGO_ALT_TEXT: string = "Project logo";
