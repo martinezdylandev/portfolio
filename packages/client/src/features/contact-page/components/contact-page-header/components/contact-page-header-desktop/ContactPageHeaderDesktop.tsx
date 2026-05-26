@@ -10,7 +10,7 @@ const ContactPageHeaderDesktop = (): React.ReactElement => {
    return (
       <div aria-label={CONTACT_PAGE_HEADER_ARIA_LABEL} className="contact-page-header contact-page-header--desktop hidden bg-page lg:block pt-25">
          <div className="flex items-center justify-center gap-10">
-            <motion.h2 initial={headerTitle.initial} whileInView={headerTitle.whileInView} transition={headerTitle.transition} viewport={headerTitle.viewport} className="text-heading font-bold leading-none m-0 text-[160px]">
+            <motion.h2 initial={headerTitle.initial} whileInView={headerTitle.whileInView} transition={headerTitle.transition} viewport={headerTitle.viewport} className="text-heading font-bold leading-none m-0 text-display-xl">
                {CONTACT_PAGE_HEADER_TEXT}
             </motion.h2>
 

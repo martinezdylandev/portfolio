@@ -15,7 +15,7 @@ const ContactPageAccomplishmentsDesktop = (): React.ReactElement => {
             return (
                <div key={row.id} className="contact-page-accomplishments__row flex gap-x-2">
                   {mainTerms.map((term) => (
-                     <span key={term.id} className="contact-page-accomplishments__term contact-page-accomplishments__term--main text-body font-bold text-7xl xl:text-8xl leading-none tracking-tight whitespace-nowrap">
+                     <span key={term.id} className="contact-page-accomplishments__term contact-page-accomplishments__term--main text-body font-bold text-display-sm xl:text-display-md leading-none tracking-tight whitespace-nowrap">
                         {term.text}
                      </span>
                   ))}

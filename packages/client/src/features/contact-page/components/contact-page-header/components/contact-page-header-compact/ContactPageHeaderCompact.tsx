@@ -10,7 +10,7 @@ const ContactPageHeaderCompact = (): React.ReactElement => {
    return (
       <div aria-label={CONTACT_PAGE_HEADER_ARIA_LABEL} className="contact-page-header contact-page-header--compact lg:hidden bg-page pt-25">
          <div className="flex flex-col md:flex-row md:justify-center items-center gap-8">
-            <motion.h2 initial={headerTitle.initial} whileInView={headerTitle.whileInView} transition={headerTitle.transition} viewport={headerTitle.viewport} className="text-heading font-bold leading-none m-0 text-[60px] md:text-[100px] text-center">
+            <motion.h2 initial={headerTitle.initial} whileInView={headerTitle.whileInView} transition={headerTitle.transition} viewport={headerTitle.viewport} className="text-heading font-bold leading-none m-0 text-display-sm md:text-display-md text-center">
                {CONTACT_PAGE_HEADER_TEXT}
             </motion.h2>
 

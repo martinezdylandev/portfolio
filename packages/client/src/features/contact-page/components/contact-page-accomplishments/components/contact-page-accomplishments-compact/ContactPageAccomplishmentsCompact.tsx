@@ -15,7 +15,7 @@ const ContactPageAccomplishmentsCompact = (): React.ReactElement => {
             return (
                <div key={row.id} className="contact-page-accomplishments__row flex flex-col">
                   {mainTerms.map((term) => (
-                     <span key={term.id} className="contact-page-accomplishments__term contact-page-accomplishments__term--main text-body font-bold text-4xl leading-none tracking-tight">
+                     <span key={term.id} className="contact-page-accomplishments__term contact-page-accomplishments__term--main text-body font-bold text-heading-lg leading-none tracking-tight">
                         {term.text}
                      </span>
                   ))}
@@ -23,7 +23,7 @@ const ContactPageAccomplishmentsCompact = (): React.ReactElement => {
                   {minorTerms.length > 0 && (
                      <div className="contact-page-accomplishments__term-group flex flex-col">
                         {minorTerms.map((term) => (
-                           <span key={term.id} className="contact-page-accomplishments__term contact-page-accomplishments__term--minor text-body font-semibold text-xs leading-none tracking-tight">
+                           <span key={term.id} className="contact-page-accomplishments__term contact-page-accomplishments__term--minor text-body text-normal leading-none tracking-tight">
                               {term.text}
                            </span>
                         ))}
