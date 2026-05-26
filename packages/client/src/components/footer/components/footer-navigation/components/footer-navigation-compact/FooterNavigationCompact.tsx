@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { Link } from "react-router";
 import { useThemeContext } from "../../../../../../utils/hooks/useThemeContext/useThemeContext";
 import { BUTTON_ARIA_LABEL, FOOTER_COMPACT_NAVIGATION_LINKS, ICON_ALT_LABEL, LIST_ARIA_LABEL_TEXT, NAV_ARIA_LABEL_TEXT } from "./data/footerNavigationCompactData";
 import { navMenuVariants } from "./utils/compactFooterNavigationAnimations";
@@ -20,9 +21,9 @@ const FooterNavigationCompact = (): React.ReactElement => {
                   <ul className="footer__navigation-compact__list flex flex-col items-center justify-center bg-accent gap-5 py-10 px-5 rounded-lg shadow-lg" aria-label={LIST_ARIA_LABEL_TEXT}>
                      {FOOTER_COMPACT_NAVIGATION_LINKS.map((link) => (
                         <li key={link.HREF} className="footer__navigation-compact__item">
-                           <a href={link.HREF} aria-label={link.ARIA_LABEL} onClick={handleClick} className="footer__navigation-compact__link">
+                           <Link to={link.HREF} aria-label={link.ARIA_LABEL} onClick={handleClick} className="footer__navigation-compact__link">
                               <span className="footer__navigation-compact__link-text text-heading font-bold text-[clamp(var(--font-size-heading-sm),5vw,var(--font-size-heading))]">{link.LABEL}</span>
-                           </a>
+                           </Link>
                         </li>
                      ))}
                   </ul>
