@@ -52,7 +52,8 @@
    --text-heading-lg: var(--font-size-heading-lg);
    --text-heading-xl: var(--font-size-heading-xl);
    --text-display-sm: var(--font-size-display-sm);
-   --text-display-md: var(--font-size-display);
+   --text-display-md: var(--font-size-display-md);
+   --text-display-base: var(--font-size-display);
    --text-display-lg: var(--font-size-display-lg);
    --text-display-xl: var(--font-size-display-xl);
    --text-display-2xl: var(--font-size-display-2xl);
@@ -113,7 +114,8 @@
    --font-size-heading-xl: var(--text-step-9); /* Large page headings */
 
    /* SEMANTIC TOKENS - Display / Hero */
-   --font-size-display-sm: var(--text-step-10); /* Small display */
+   --font-size-display-sm: var(--text-step-10); /* Small display (60px) */
+   --font-size-display-md: var(--text-step-11); /* Mid display (72px) */
    --font-size-display: var(--text-step-12); /* Display (96px) */
    --font-size-display-lg: var(--text-step-13); /* Large display (120px) */
    --font-size-display-xl: var(--text-step-14); /* XL display (160px) */
