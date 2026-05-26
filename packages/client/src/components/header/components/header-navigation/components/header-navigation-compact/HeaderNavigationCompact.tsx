@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { Link } from "react-router";
 import { useThemeContext } from "../../../../../../utils/hooks/useThemeContext/useThemeContext";
 import { HEADER_NAVIGATION_LINKS, LIST_COMPACT_ARIA_LABEL_TEXT, LIST_DESKTOP_ARIA_LABEL_TEXT, NAV_COMPACT_ARIA_LABEL_TEXT, NAV_DESKTOP_ARIA_LABEL_TEXT } from "../../data/headerNavigationData";
 import { navMenuVariants } from "./utils/compactNavigationAnimations";
@@ -21,9 +22,9 @@ const HeaderNavigationCompact = (): React.ReactElement => {
                      <ul className="header-navigation-compact__list flex flex-col items-center justify-center bg-accent gap-5 py-10 px-5 rounded-lg shadow-lg" aria-label={LIST_COMPACT_ARIA_LABEL_TEXT}>
                         {HEADER_NAVIGATION_LINKS.map((link) => (
                            <li key={link.HREF} className="header-navigation-compact__item">
-                              <a href={link.HREF} aria-label={link.ARIA_LABEL} onClick={handleClick} className="header-navigation-compact__link">
+                              <Link to={link.HREF} aria-label={link.ARIA_LABEL} onClick={handleClick} className="header-navigation-compact__link">
                                  <span className="header-navigation-compact__link-text text-heading font-bold text-[clamp(var(--font-size-heading-sm),5vw,var(--font-size-heading))]">{link.LABEL}</span>
-                              </a>
+                              </Link>
                            </li>
                         ))}
                      </ul>
@@ -36,9 +37,9 @@ const HeaderNavigationCompact = (): React.ReactElement => {
                <ul className="header-navigation-desktop__list flex justify-center gap-5" aria-label={LIST_DESKTOP_ARIA_LABEL_TEXT}>
                   {HEADER_NAVIGATION_LINKS.slice(1).map((link) => (
                      <li key={link.HREF} className="header-navigation-desktop__item">
-                        <a href={link.HREF} aria-label={link.ARIA_LABEL} className="header-navigation-desktop__link">
+                        <Link to={link.HREF} aria-label={link.ARIA_LABEL} className="header-navigation-desktop__link">
                            <span className="header-navigation-desktop__link-text text-heading hover:text-accent font-hanken-grotesk font-bold text-[clamp(var(--font-size-body),1.125rem,var(--font-size-heading-xs))] transition-colors duration-300 ease-in-out">{link.LABEL}</span>
-                        </a>
+                        </Link>
                      </li>
                   ))}
                </ul>
