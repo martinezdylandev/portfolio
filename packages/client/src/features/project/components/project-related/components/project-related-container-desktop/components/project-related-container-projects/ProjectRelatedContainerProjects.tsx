@@ -1,16 +1,19 @@
 import HttpErrorFallback from "@/components/http-error-fallback/HttpErrorFallback";
+import React from "react";
 import ProjectRelatedContainerProjectsProject from "./components/project-related-container-projects-project/ProjectRelatedContainerProjectsProject.tsx";
 import { PROJECT_RELATED_CONTAINER_PROJECTS_ARIA_LABEL, PROJECT_RELATED_CONTAINER_PROJECTS_ERROR_ARIA_LABEL, PROJECT_RELATED_CONTAINER_PROJECTS_LOADING_ARIA_LABEL, getProjectNameParts } from "./data/projectRelatedContainerProjectsData.ts";
 import { useRelatedProjects } from "./utils/useRelatedProjects";
 
-const ProjectRelatedContainerProjects = () => {
+const ProjectRelatedContainerProjects = (): React.ReactElement => {
    const { relatedProjects, loading, error } = useRelatedProjects();
 
    if (loading) {
       return (
-         <span className="project__related-container-projects-loading-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECT_RELATED_CONTAINER_PROJECTS_LOADING_ARIA_LABEL}>
-            Loading projects...
-         </span>
+         <div role="status" aria-live="polite">
+            <span className="project__related-container-projects-loading-message text-center text-heading-sm font-semibold pt-48 text-heading" aria-label={PROJECT_RELATED_CONTAINER_PROJECTS_LOADING_ARIA_LABEL}>
+               Loading projects...
+            </span>
+         </div>
       );
    }
 
@@ -20,9 +23,11 @@ const ProjectRelatedContainerProjects = () => {
 
    if (relatedProjects.length === 0) {
       return (
-         <span className="project__related-container-projects-error-message text-center text-2xl font-semibold pt-48 text-heading" aria-label={PROJECT_RELATED_CONTAINER_PROJECTS_ERROR_ARIA_LABEL}>
-            No projects data available or unexpected format.
-         </span>
+         <div role="status" aria-live="polite">
+            <span className="project__related-container-projects-error-message text-center text-heading-sm font-semibold pt-48 text-heading" aria-label={PROJECT_RELATED_CONTAINER_PROJECTS_ERROR_ARIA_LABEL}>
+               No projects data available or unexpected format.
+            </span>
+         </div>
       );
    }
 
@@ -31,7 +36,6 @@ const ProjectRelatedContainerProjects = () => {
          <ul className="project__related-container-projects-list flex justify-between" data-testid="related-projects-list">
             {relatedProjects.map((project) => {
                const { firstPart, secondPart } = getProjectNameParts(project.project_name);
-               //TODO: Add placeholders in the DATA file.
                return <ProjectRelatedContainerProjectsProject key={project.project_id} firstPart={firstPart} secondPart={secondPart} project={project} />;
             })}
          </ul>

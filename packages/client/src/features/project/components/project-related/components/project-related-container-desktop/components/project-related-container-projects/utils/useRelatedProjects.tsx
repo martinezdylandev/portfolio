@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useFetchData from "../../../../../../../../../utils/hooks/useFetchData/useFetchData";
-import type { ProjectInterface } from "../../../../../../../data/projectData";
+import type { ProjectInterface } from "../../../../../../../../../types/projectInterface";
 import { getRandomProjects } from "../data/projectRelatedContainerProjectsData";
 
 export interface UseRelatedProjectsReturn {

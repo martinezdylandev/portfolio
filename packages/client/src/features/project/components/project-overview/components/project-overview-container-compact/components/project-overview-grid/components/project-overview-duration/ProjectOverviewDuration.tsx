@@ -1,6 +1,7 @@
 import { PROJECT_OVERVIEW_DURATION_ARIA_LABEL, PROJECT_OVERVIEW_DURATION_TITLE_TEXT, ProjectOverviewDurationProps } from "./data/projectOverviewDurationData";
+import React from "react";
 
-const ProjectOverviewDuration = ({ project }: ProjectOverviewDurationProps) => {
+const ProjectOverviewDuration = ({ project }: ProjectOverviewDurationProps): React.ReactElement => {
    return (
       <div className="project__overview-grid-duration" aria-label={PROJECT_OVERVIEW_DURATION_ARIA_LABEL}>
          <h3 className="text-xl font-medium text-muted">{PROJECT_OVERVIEW_DURATION_TITLE_TEXT}</h3>
