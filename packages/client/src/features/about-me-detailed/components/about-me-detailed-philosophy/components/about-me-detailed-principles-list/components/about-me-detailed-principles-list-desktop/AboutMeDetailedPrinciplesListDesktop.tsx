@@ -7,12 +7,12 @@ const AboutMeDetailedPrinciplesListDesktop = (): React.ReactElement => {
       <div className="about-me-detailed__philosophy-principles-list about-me-detailed__philosophy-principles-list--desktop flex flex-col justify-center px-25">
          <ul className="about-me-detailed__philosophy-principles-list-header grid grid-cols-4 text-left font-hanken-grotesk text-heading">
             {ABOUT_ME_DETAILED_PHILOSOPHY_COLUMNS.map((column) => (
-               <li key={column} className="about-me-detailed__philosophy-principles-list-header-item p-2.5">
+               <li key={column} className="about-me-detailed__philosophy-principles-list-header-item p-2.5 text-body-sm">
                   {column}
                </li>
             ))}
          </ul>
-         <ul className="about-me-detailed__philosophy-principles-list-items text-lg text-left font-hanken-grotesk grid grid-cols-4 grid-rows-4 w-fit border-t-[5px] border-b-[5px] text-heading border-heading">
+         <ul className="about-me-detailed__philosophy-principles-list-items text-[clamp(var(--font-size-body),1.2vw,var(--font-size-body-lg))] text-left font-hanken-grotesk grid grid-cols-4 grid-rows-4 w-fit border-t-[5px] border-b-[5px] text-heading border-heading">
             {ABOUT_ME_DETAILED_PHILOSOPHY_PRINCIPLES.map((text, index) => {
                const { row, col, borderBottom } = calculatePrincipleGridPosition(index);
                return (

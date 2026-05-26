@@ -1,7 +1,5 @@
 export const ABOUT_ME_ARIA_LABEL = "About me section";
-export const ABOUT_ME_DETAILED_ARIA_LABEL = "About me detailed section";
 export const ABOUT_ME_TEST_ID = "about-me-section";
-export const ABOUT_ME_DETAILED_TEST_ID = "about-me-detailed-section";
 export const ABOUT_ME_ABOUT_DETAILED_NAVIGATION_ARIA_LABEL = "Navigate to about page";
 export const ABOUT_ME_ABOUT_CONTACT_NAVIGATION_ARIA_LABEL = "Navigate to contact page";
 
@@ -9,16 +7,21 @@ export const ABOUT_ME_HEADER_TITLE: string = "DYLAN MARTINEZ";
 export const ABOUT_ME_HEADER_IMAGE_SRC: string = "/dylan.webp";
 export const ABOUT_ME_HEADER_IMAGE_ALT_TEXT: string = "Dylan Martinez portrait";
 export const ABOUT_ME_HEADER_IMAGE_TEXT: string = "I'M WATCHING YOU";
-export const ABOUT_ME_CONTENT_TEXT_FIRST: string = "I am a Full-stack Software Developer from Argentina. Based in Copenhagen, Denmark, with +2 years of experience building modern end-to-end web applications. My passion for technology began early in my life when my mother first introduced me to computers in a small cybercafé. Fast forward today, I craft and maintain performant and user-focused solutions with passion and professionalism for each of my clients.";
-export const ABOUT_ME_CONTENT_TEXT_SECOND: string = "I use React, TypeScript, Express and so many other tools to build my projects. My goal is to help business and individuals turn their ideas into real, performant and user-focused digital products that both look and work greatly. If you're looking for somebody who REALLY cares, then you're talking to the right person.";
+export const ABOUT_ME_CONTENT_TEXT_FIRST: string = "I'm a Product-oriented Full-Stack Software Developer from Argentina, based in Copenhagen, Denmark. My passion for technology began early, when my mother introduced me to computers in a small cybercafé at age 10. For over 7 years, I led cross-functional teams and drove digital transformations in customer-facing operations as a CX Director. Today, I design and create performant, user-focused solutions for clients across Europe, blending technical execution with deep business insight at every step.";
+export const ABOUT_ME_CONTENT_TEXT_SECOND: string = "I build by taking end-to-end ownership of my work while collaborating closely with others to deliver fast results. I use first-principles thinking, checklists, and software development conventions such as Clean Code, SOLID, DRY, and TDD on every project. What sets me apart is that I care deeply about what I build, and I pay close attention to the client’s real needs so the end solution is thoughtful, durable, and grounded in depth rather than surface-level fixes, and built for long-term success.";
 export const ABOUT_ME_CONTENT_LINK_KNOW_MORE_TEXT: string = "KNOW MORE";
 export const ABOUT_ME_CONTENT_LINK_CONTACT_TEXT: string = "CONTACT ME";
 
-export const CATEGORY_NAME: string[] = ["ME", "PHILOSOPHY", "TOOLS", "STORY"];
+export const CATEGORY_NAME: string[] = ["ME", "VALUES", "TOOLS", "STORY"];
 
-export const CATEGORY_DESCRIPTION: string[] = ["THE WHY", "THE HOW", "UNDER CONSTRUCTION"];
+export const CATEGORY_DESCRIPTION: string[] = ["THE WHY", "THE HOW", "UNDER CONSTRUCTION..."];
 
-export const INTRO_TEXTS: string[] = ["I'm a Full-stack Software Developer with +2 years of experience. Originally from Argentina, now based in Copenhagen, Denmark.", "Web development is a passion that started earlier in my life when I first got introduced to a computer, by my mother, in a cybercafe.", "All of the projects were I got involded are built around modern web technologies such as React, TypeScript and Express among many other cool libraries and frameworks.", "My projects, my work, is something I want to be proud of, and I put both my passion and professionalism on that, creating solutions that performs and fascinate users by equal."];
+export const INTRO_TEXTS: string[] = [
+   "I'm a Product-oriented Full-Stack Software Developer from Argentina, based in Copenhagen, Denmark, building thoughtful products with purpose and care.",
+   "With 7+ years in CX and digital transformation, I bring product thinking, technical depth, and a strong sense of ownership to every project every day.",
+   "I care deeply about what I build, and I combine first-principles thinking with clear conventions and a deep understanding of client needs in practice.",
+   "I work end to end, collaborate closely, and design durable web applications that balance user experience, performance, usability, and long-term value.",
+ ];
 
 export type PhilosophyColumns = "Column N1" | "Column N2" | "Column N3" | "Column N4";
 
@@ -26,9 +29,9 @@ export const PHILOSOPHY_COLUMNS: PhilosophyColumns[] = ["Column N1", "Column N2"
 
 export const PHILOSOPHY_PRINCIPLES: string[] = ["Listen more than you speak.", "Simplify until it can't be more simple.", "Think globally and locally.", "Invert, always invert. Focus first on what NOT to do.", "Think in terms of incentives, do not change people/situations, change their incentives.", "The people surrounding you are an extension of you.", "A good product/service makes great part of its marketing.", "Opposite rule: Stimulate, provoke, do new things, break habits.", "Seek for freedom above all.", "Your way of thinking shapes your reality.", "Focus on the principles of each area/task of your life (80/20 rule).", "Be the kind of person that you will like to meet.", "Don't try to be someone else, use the unfair advantage of being YOU.", "Time > Money.", "Do not fix what is not broken."];
 
-export const PHILOSOPHY_DISCLAIMER = "Disclaimer: Each of the principles appearing on this list are the result of distilling thoughts both other's and mine, and are under revision all the time.";
+export const PHILOSOPHY_DISCLAIMER = "Each of the principles appearing on this list are the result of distilling thoughts both other's and mine, and are under revision all the time.";
 
-export type ToolCategoryTitle = "CHORE" | "FRONT-END" | "BACK-END" | "DEVOPS" | "QUALITY";
+export type ToolCategoryTitle = "LANGUAGES" | "FRAMEWORKS" | "DATABASES" | "AI";
 
 export interface ToolCategory {
    title: ToolCategoryTitle;
@@ -37,24 +40,20 @@ export interface ToolCategory {
 
 export const TOOL_CATEGORIES: ToolCategory[] = [
    {
-      title: "CHORE",
-      description: "JavaScript, TypeScript, React, Vue, Node.js/Express, REST APIs, GraphQL, PostgreSQL, MySQL",
+      title: "LANGUAGES",
+      description: `"JavaScript, TypeScript, Node"`,
    },
    {
-      title: "FRONT-END",
-      description: "HTML, CSS, responsive & mobile first, accessibility(WCAG/ARIA), state management(Redux/Zustand), Vite/Webpack, Storybook, Core Web Vitals",
+      title: "FRAMEWORKS",
+      description: `"React, Vue, Next, Express, Nest"`,
    },
    {
-      title: "BACK-END",
-      description: "Microservices, auth(OAuth/JWT), security(OWASP), ORM(Prisma/TypeORM), Redis, RabbitMQ/Kafka",
+      title: "DATABASES",
+      description: `"Postgresql, MySQL, MongoDB, Redis"`,
    },
    {
-      title: "DEVOPS",
-      description: "Git, Docker, CI/CD(GitHub Actions/GitLab CI), Kubernetes, Terraform, monitoring(Prometheus/Grafana), AWS/Azure/Google Cloud/Vercel/Digital Ocean",
-   },
-   {
-      title: "QUALITY",
-      description: "Clean Code, OOP, SOLID, DRY, TDD, code reviews, Agile/Scrum/Kanban",
+      title: "AI",
+      description: `"GPT, Claude, Gemini"`,
    },
 ];
 
