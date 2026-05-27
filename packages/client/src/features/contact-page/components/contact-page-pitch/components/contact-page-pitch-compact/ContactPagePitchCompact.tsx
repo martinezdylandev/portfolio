@@ -46,7 +46,7 @@ const ContactPagePitchCompact = ({ isContactFormLoaded }: { isContactFormLoaded:
             <span className="text-heading-lg md:text-display-sm md:w-2/3 md:self-center text-heading text-center font-bold">GOT A PROJECT IN MIND ?</span>
             <AnimatePresence>
                {!isContactFormLoaded && (
-                  <motion.div animate="pulse" exit={{ opacity: 0, y: 20 }} transition={{ staggerChildren: -0.2, staggerDirection: -1, duration: 0.4 }} className="contact-page-pitch__dots">
+                  <motion.div animate="pulse" exit={{ opacity: 0, y: 20 }} transition={{ staggerChildren: -0.2, staggerDirection: -1, duration: 0.4 }} className="contact-page-pitch__dots contact-page-pitch__dots--compact">
                      <motion.div className="dot" variants={dotVariants} />
                      <motion.div className="dot" variants={dotVariants} />
                      <motion.div className="dot" variants={dotVariants} />

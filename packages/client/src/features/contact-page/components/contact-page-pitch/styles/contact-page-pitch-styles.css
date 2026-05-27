@@ -17,9 +17,17 @@
 }
 
 .dot {
-   width: 15px;
-   height: 15px;
    border-radius: 100%;
    background-color: var(--color-accent);
    will-change: transform;
+}
+
+.contact-page-pitch__dots--desktop .dot {
+   width: 20px;
+   height: 20px;
+}
+
+.contact-page-pitch__dots--compact .dot {
+   width: 15px;
+   height: 15px;
 }

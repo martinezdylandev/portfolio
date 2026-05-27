@@ -38,10 +38,10 @@ const ContactPagePitchDesktop = ({ isContactFormLoaded }: { isContactFormLoaded:
             </div>
          </motion.div>
          <motion.div initial={intro.initial} whileInView={intro.whileInView} transition={intro.transition} viewport={intro.viewport} className="flex flex-col max-w-1/2 self-center gap-12.5">
-            <span className="flex text-display-xl text-heading text-center self-start font-bold">GOT A PROJECT IN MIND ?</span>
+            <span className="flex text-display-xl leading-none text-heading text-center self-start font-bold">GOT A PROJECT IN MIND ?</span>
             <AnimatePresence>
                {!isContactFormLoaded && (
-                  <motion.div animate="pulse" exit={{ opacity: 0, y: 20 }} transition={{ staggerChildren: -0.2, staggerDirection: -1, duration: 0.4 }} className="contact-page-pitch__dots">
+                  <motion.div animate="pulse" exit={{ opacity: 0, y: 20 }} transition={{ staggerChildren: -0.2, staggerDirection: -1, duration: 0.4 }} className="contact-page-pitch__dots contact-page-pitch__dots--desktop">
                      <motion.div className="dot" variants={dotVariants} />
                      <motion.div className="dot" variants={dotVariants} />
                      <motion.div className="dot" variants={dotVariants} />
