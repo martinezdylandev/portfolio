@@ -17,6 +17,8 @@ export interface ProjectOverviewShowcaseFloatingImage {
    duration: number;
 }
 
+export const PROJECTS_WITHOUT_FLOATERS: number[] = [4, 5];
+
 export const PROJECT_OVERVIEW_SHOWCASE_FLOATING_IMAGES: ProjectOverviewShowcaseFloatingImage[] = [
    {
       key: "top-left",
