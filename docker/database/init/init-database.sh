@@ -25,6 +25,7 @@ if [ "$TABLE_EXISTS" = "f" ]; then
     echo "Running schema migration..."
     psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/001_initial_schema.sql
     psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/002_project_overview_media_type.sql
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/003_add_project_slug.sql
     
     # Run seed files
     echo "Running seed files..."
@@ -81,6 +82,12 @@ else
         echo "Current projects in database:"
         psql -t -c "SELECT project_id, project_name FROM projects ORDER BY project_id;" -U "$POSTGRES_USER" -d "$POSTGRES_DB" 2>/dev/null || echo "Could not retrieve projects"
     fi
+
+    # Always run incremental migrations (they are idempotent)
+    echo "Running incremental migrations..."
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/002_project_overview_media_type.sql 2>/dev/null || true
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/003_add_project_slug.sql 2>/dev/null || true
+    echo "Incremental migrations complete."
 fi
 
 echo "Database initialization check complete!"
