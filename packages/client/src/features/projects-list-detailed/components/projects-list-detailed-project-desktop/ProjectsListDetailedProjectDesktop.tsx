@@ -14,7 +14,7 @@ const ProjectsListDetailedProjectDesktop = ({ project, isOddProject }: ProjectsL
 
    return (
       <motion.li initial={{ x: isOddProject ? -700 : 700, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.1, ease: "easeInOut" }} viewport={{ once: true, amount: 0.1 }} className="projects-list-detailed__list-item projects-list-detailed__list-item--desktop grid min-h-screen cursor-pointer rounded-xs border-0 group bg-card p-12 transition duration-300 ease-in-out hover:bg-accent" aria-label={`Project list item: ${project.project_name}`}>
-         <Link className="projects-list-detailed__link contents" to={`/projects/${project.project_name}`} aria-label={`View ${project.project_name}`}>
+         <Link className="projects-list-detailed__link contents" to={`/projects/${project.project_slug}`} aria-label={`View ${project.project_name}`}>
             <div className={`flex flex-row items-center justify-between py-12.5 ${isOddProject ? "" : "flex-row-reverse"}`}>
                <div className="projects-list-detailed__first-wrapper flex flex-col max-w-3/4 text-left" aria-label={`Project ${project.project_name} details`}>
                   <span className="text-[clamp(var(--font-size-heading-xl),5vw,var(--font-size-display))] font-bold transition-colors duration-300 text-heading leading-none group-hover:text-white">{firstPartName}</span>

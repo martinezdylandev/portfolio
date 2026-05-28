@@ -28,7 +28,7 @@ export const useHeaderProjectsCommandProcessor = ({ projects, setProjectsAreVisi
                   if (matchingProject) {
                      setProjectsAreVisible(false);
                      setProjectsAreClosing(false);
-                     window.location.href = `/projects/${matchingProject.project_name}`;
+                     window.location.href = `/projects/${matchingProject.project_slug}`;
                   } else {
                      console.error(`Project "${projectName}" not found`);
                   }

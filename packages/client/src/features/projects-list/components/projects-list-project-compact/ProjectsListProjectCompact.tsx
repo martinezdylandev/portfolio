@@ -12,7 +12,7 @@ const ProjectsListProjectCompact = ({ project, index }: ProjectsListProjectProps
    return (
       <>
          <li className="projects-list__list-item flex flex-col justify-center items-center gap-5 p-5 border-0 rounded-xs transition duration-00 ease-in-out bg-card group" aria-label={`Project ${index} list item: ${project.project_name}`}>
-            <Link className="projects-list__link contents" to={`/projects/${project.project_name}`} aria-label={`View ${project.project_name}`}>
+            <Link className="projects-list__link contents" to={`/projects/${project.project_slug}`} aria-label={`View ${project.project_name}`}>
                {isTablet ? (
                   <div className="grid grid-cols-2">
                      <div className={`projects-list__list-item-content ${project.project_id % 2 ? "order-1" : "order-2"}`}>

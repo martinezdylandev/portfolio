@@ -4,8 +4,8 @@ let statusSpy: any;
 let jsonSpy: any;
 let consoleErrorSpy: any;
 
-const initializeMocks = (projectName: string) => {
-   mockRequest = { params: { projectName } };
+const initializeMocks = (projectSlug: string) => {
+   mockRequest = { params: { projectSlug } };
    mockResponse = { status: vi.fn().mockReturnThis(), json: vi.fn() };
    statusSpy = vi.spyOn(mockResponse, "status");
    jsonSpy = vi.spyOn(mockResponse, "json");

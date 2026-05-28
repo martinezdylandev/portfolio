@@ -17,7 +17,7 @@ const ProjectsListDetailedProjectCompact = ({ project, isOddProject }: ProjectsL
 
    return (
       <motion.li initial={initial} whileInView={whileInView} transition={listTransition} viewport={viewport} className="projects-list-detailed__list-item projects-list-detailed__list-item--compact flex flex-col rounded-xs border-0 group bg-card p-6 transition duration-300 ease-in-out" aria-label={`Project list item: ${project.project_name}`}>
-         <Link className="projects-list-detailed__link contents" to={`/projects/${project.project_name}`} aria-label={`View ${project.project_name}`}>
+         <Link className="projects-list-detailed__link contents" to={`/projects/${project.project_slug}`} aria-label={`View ${project.project_name}`}>
             <div className="flex flex-col items-center gap-5">
                <div className="projects-list-detailed__second-wrapper flex shrink-0 size-40 items-center justify-center rounded-[50%] bg-card" aria-label={`Project ${project.project_name} logo`}>
                   <img src={projectPrimaryLogo} className="h-[50%] w-[70%] object-contain" alt={`${PROJECT_LOGO_ALT_TEXT} for ${project.project_name}`} />
