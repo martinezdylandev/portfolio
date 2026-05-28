@@ -28,7 +28,8 @@ INSERT INTO projects (
     project_final_results_stat_02,
     project_final_results_stat_03_title,
     project_final_results_stat_03,
-    project_external_url
+    project_external_url,
+    project_slug
 ) VALUES (
     1,
     'Julieta Abdon: An Artistic Vision',
@@ -58,7 +59,8 @@ INSERT INTO projects (
     '+2% YoY sales conversion rate',
     NULL,
     NULL,
-    'https://julietaabdon.com/'
+    'https://julietaabdon.com/',
+    'julieta-abdon'
 );
 
 -- Project 2: ABV: Design in Motion
@@ -91,7 +93,8 @@ INSERT INTO projects (
     project_final_results_stat_02,
     project_final_results_stat_03_title,
     project_final_results_stat_03,
-    project_external_url
+    project_external_url,
+    project_slug
 ) VALUES (
     2,
     'ABV: Design in Motion',
@@ -121,7 +124,8 @@ INSERT INTO projects (
     'Site featured on Dazeen',
     NULL,
     NULL,
-    'https://bvarchitecture.es/'
+    'https://bvarchitecture.es/',
+    'abv-design-in-motion'
 );
 
 -- Project 3: En Marte: From Another Planet
@@ -154,7 +158,8 @@ INSERT INTO projects (
     project_final_results_stat_02,
     project_final_results_stat_03_title,
     project_final_results_stat_03,
-    project_external_url
+    project_external_url,
+    project_slug
 ) VALUES (
     3,
     'En Marte: From Another Planet',
@@ -184,7 +189,8 @@ INSERT INTO projects (
     '+4% MoM sales conversion rate',
     'Sales channels expansion',
     'Instagram-only to multi-sales-channel',
-    'https://enmarte.shop/'
+    'https://enmarte.shop/',
+    'en-marte'
 );
 
 -- Project 4: ISSAS: Alla Italiana
@@ -217,7 +223,8 @@ INSERT INTO projects (
     project_final_results_stat_02,
     project_final_results_stat_03_title,
     project_final_results_stat_03,
-    project_external_url
+    project_external_url,
+    project_slug
 ) VALUES (
     4,
     'ISSAS: Alla Italiana',
@@ -247,7 +254,8 @@ INSERT INTO projects (
     'Cross-borders orders from SE, DE and NL',
     NULL,
     NULL,
-    'https://issasjewelry.com/'
+    'https://issasjewelry.com/',
+    'issas-alla-italiana'
 );
 
 -- Project 5: P-E-M: Breaking the Chains
@@ -280,7 +288,8 @@ INSERT INTO projects (
     project_final_results_stat_02,
     project_final_results_stat_03_title,
     project_final_results_stat_03,
-    project_external_url
+    project_external_url,
+    project_slug
 ) VALUES (
     5,
     'P-E-M: Breaking the Chains',
@@ -310,5 +319,6 @@ INSERT INTO projects (
     '+20% site total visits*',
     NULL,
     NULL,
-    'https://www.proyectoenmadera.com.ar/'
+    'https://www.proyectoenmadera.com.ar/',
+    'pem-breaking-the-chains'
 );

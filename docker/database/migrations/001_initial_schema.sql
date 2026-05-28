@@ -26,5 +26,6 @@ CREATE TABLE projects (
     project_final_results_stat_02 TEXT,
     project_final_results_stat_03_title TEXT,
     project_final_results_stat_03 TEXT,
-    project_external_url TEXT
+    project_external_url TEXT,
+    project_slug TEXT UNIQUE NOT NULL
 );
