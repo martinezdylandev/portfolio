@@ -13,8 +13,8 @@ import { PROJECT_ARIA_LABEL, PROJECT_ERROR_ARIA_LABEL, PROJECT_LOADING_ARIA_LABE
 import { buildProjectApiPath } from "./utils/buildProjectApiPath";
 
 const Project = (): React.ReactElement => {
-   const { projectName } = useParams<{ projectName: string }>();
-   const apiPath = buildProjectApiPath(projectName);
+   const { projectSlug } = useParams<{ projectSlug: string }>();
+   const apiPath = buildProjectApiPath(projectSlug);
    const { data: project, loading, error } = useFetchData<ProjectInterface>(apiPath);
    const isDesktop = useMediaQuery("(min-width: 1024px)");
 

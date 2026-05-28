@@ -25,7 +25,7 @@ const ProjectRelatedContainerProjectsProject = ({ firstPart, secondPart, project
 
    return (
       <motion.li ref={containerRef} style={{ y, backgroundColor }} className="project__related-container-projects-project" data-testid="related-project">
-         <Link key={project.project_id} to={`/projects/${project.project_name}`} className="project__related-container-projects-project-link">
+         <Link key={project.project_id} to={`/projects/${project.project_slug}`} className="project__related-container-projects-project-link">
             <div className="project__related-container-projects-project-content flex flex-col relative h-fit overflow-hidden">
                <div className="project__related-container-projects-project-upper-part">
                   <img className="project__related-container-projects-project-image min-w-[272px] md:max-w-[320px] md:max-h-[320px]" src={projectSecondaryLogo} alt={PROJECT_RELATED_CONTAINER_PROJECTS_IMAGE_ALT_TEXT} />

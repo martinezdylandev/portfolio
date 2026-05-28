@@ -28,4 +28,5 @@ export interface ProjectInterface {
    project_timeline_event_05_title: string;
    project_timeline_event_05: string;
    project_external_url: string | null;
+   project_slug: string;
 }

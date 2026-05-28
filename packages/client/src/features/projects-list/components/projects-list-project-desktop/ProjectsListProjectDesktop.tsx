@@ -65,7 +65,7 @@ const ProjectsListProjectDesktop = ({ project, index }: ProjectsListProjectProps
    return (
       <>
          <li className="projects-list__list-item grid gap-24 p-12 cursor-pointer border-0 rounded-xs transition duration-300 ease-in-out bg-card hover:bg-accent group" aria-label={`Project ${index} list item: ${project.project_name}`} onMouseMove={handleMouseMove} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <Link className="projects-list__link contents" to={`/projects/${project.project_name}`} aria-label={`View ${project.project_name}`}>
+            <Link className="projects-list__link contents" to={`/projects/${project.project_slug}`} aria-label={`View ${project.project_name}`}>
                <div className="projects-list__list-item-content flex justify-center items-center gap-0">
                   {PROJECT_LETTERS.map((letter, letterIndex) =>
                      letterIndex === replacedIndex ? (

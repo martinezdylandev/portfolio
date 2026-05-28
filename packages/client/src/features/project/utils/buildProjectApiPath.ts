@@ -1,3 +1,3 @@
-export const buildProjectApiPath = (projectName: string | undefined): string | null => {
-   return projectName ? `projects/${projectName}` : null;
+export const buildProjectApiPath = (projectSlug: string | undefined): string | null => {
+   return projectSlug ? `projects/${projectSlug}` : null;
 };

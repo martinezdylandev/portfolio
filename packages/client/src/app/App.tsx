@@ -39,7 +39,7 @@ function AppContent() {
                }
             />
             <Route
-               path="/projects/:projectName"
+               path="/projects/:projectSlug"
                element={
                   <ErrorBoundary fallback={<GenericErrorPage />}>
                      <Project />
