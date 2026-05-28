@@ -125,7 +125,7 @@ INSERT INTO projects (
     NULL,
     NULL,
     'https://bvarchitecture.es/',
-    'abv-design-in-motion'
+    'abv'
 );
 
 -- Project 3: En Marte: From Another Planet
@@ -255,7 +255,7 @@ INSERT INTO projects (
     NULL,
     NULL,
     'https://issasjewelry.com/',
-    'issas-alla-italiana'
+    'issas'
 );
 
 -- Project 5: P-E-M: Breaking the Chains
@@ -320,5 +320,5 @@ INSERT INTO projects (
     NULL,
     NULL,
     'https://www.proyectoenmadera.com.ar/',
-    'pem-breaking-the-chains'
+    'pem'
 );
