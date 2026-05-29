@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 
+interface UseCompactNavigationMenuParams {
+   isHeaderVisible: boolean;
+}
+
 interface UseCompactNavigationMenuReturn {
    isNavigationMenuOpen: boolean;
    handleClick: () => void;
@@ -7,12 +11,21 @@ interface UseCompactNavigationMenuReturn {
    buttonRef: React.RefObject<HTMLButtonElement | null>;
 }
 
-export const useCompactNavigationMenu = (): UseCompactNavigationMenuReturn => {
+export const useCompactNavigationMenu = ({ isHeaderVisible }: UseCompactNavigationMenuParams): UseCompactNavigationMenuReturn => {
    const [isNavigationMenuOpen, setIsNavigationMenuOpen] = useState(false);
+   const [wasHeaderVisible, setWasHeaderVisible] = useState(isHeaderVisible);
    const navRef = useRef<HTMLElement>(null);
    const buttonRef = useRef<HTMLButtonElement>(null);
 
+   if (wasHeaderVisible !== isHeaderVisible) {
+      setWasHeaderVisible(isHeaderVisible);
+      if (!isHeaderVisible && isNavigationMenuOpen) {
+         setIsNavigationMenuOpen(false);
+      }
+   }
+
    const handleClick = (): void => {
+      if (!isHeaderVisible && !isNavigationMenuOpen) return;
       setIsNavigationMenuOpen((prev) => !prev);
    };
 
