@@ -22,7 +22,7 @@ const Header = (): React.ReactElement => {
          id="header"
          aria-label={HEADER_ARIA_LABEL}
       >
-         <div className="header__content flex items-center justify-between p-6 px-auto">
+         <div className="header__content flex items-center justify-between p-6 px-auto relative">
             <HeaderNavigation />
             <HeaderLogo />
             <HeaderModeSwitcher />
