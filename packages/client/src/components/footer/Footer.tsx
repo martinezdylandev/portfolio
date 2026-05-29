@@ -7,7 +7,7 @@ import { FOOTER_ARIA_LABEL, FOOTER_CONTENT_ARIA_LABEL } from "./data/footerData"
 const Footer = (): React.ReactElement => {
    return (
       <footer id="footer" className="footer bg-page" aria-label={FOOTER_ARIA_LABEL}>
-         <div className="footer__content flex items-center justify-between px-6 py-12 md:px-auto md:grid md:grid-cols-3" role="region" aria-label={FOOTER_CONTENT_ARIA_LABEL}>
+         <div className="footer__content flex items-center justify-between p-6 md:px-auto md:grid md:grid-cols-3 relative" role="region" aria-label={FOOTER_CONTENT_ARIA_LABEL}>
             <FooterLogo />
             <FooterNavigation />
             <FooterScrollUp />
