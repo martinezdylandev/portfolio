@@ -1,12 +1,12 @@
 import HttpErrorFallback from "@/components/http-error-fallback/HttpErrorFallback";
 import { motion } from "framer-motion";
 import React from "react";
+import type { ProjectInterface } from "../../types/projectInterface";
 import useFetchData from "../../utils/hooks/useFetchData/useFetchData";
 import { useMediaQuery } from "../../utils/hooks/useMediaQuery/useMediaQuery";
-import type { ProjectInterface } from "../../types/projectInterface";
 import ProjectsListProjectCompact from "./components/projects-list-project-compact/ProjectsListProjectCompact";
 import ProjectsListProjectDesktop from "./components/projects-list-project-desktop/ProjectsListProjectDesktop";
-import { PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT, PROJECTS_LIST_ERROR_ARIA_LABEL, PROJECTS_LIST_LOADING_ARIA_LABEL, PROJECTS_LIST_LOADING_TEXT, PROJECTS_LIST_NO_DATA_TEXT, PROJECTS_LIST_SCROLLING_TEXT_CLASS, PROJECTS_LIST_SCROLLING_TEXT_PROJECTS, PROJECTS_LIST_SCROLLING_TEXT_PROJEKTER, PROJECTS_LIST_SCROLLING_TEXT_PROYECTOS, PROJECTS_LIST_UL_ARIA_LABEL, PROJECTS_LIST_UL_TEST_ID } from "./data/projectsListData";
+import { PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT, PROJECTS_LIST_ERROR_ARIA_LABEL, PROJECTS_LIST_LOADING_ARIA_LABEL, PROJECTS_LIST_LOADING_TEXT, PROJECTS_LIST_NO_DATA_TEXT, PROJECTS_LIST_SCROLLING_TEXT_CLASS, PROJECTS_LIST_SCROLLING_TEXT_ITEMS, PROJECTS_LIST_UL_ARIA_LABEL, PROJECTS_LIST_UL_TEST_ID } from "./data/projectsListData";
 import { useProjectsListListAnimation, useProjectsListScrollAnimation } from "./utils/useProjectsListAnimations";
 
 const ProjectsList = (): React.ReactElement => {
@@ -42,16 +42,21 @@ const ProjectsList = (): React.ReactElement => {
    return (
       <div id="projects" className="projects-list__container bg-page py-25" aria-label={PROJECTS_LIST_CONTAINER_ARIA_LABEL_TEXT}>
          <div className="projects-list__content-wrapper flex flex-col gap-12.5 overflow-hidden">
-            <motion.div className="projects-list__scrolling-text flex gap-2.5" animate={animate} transition={scrollTransition}>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROJEKTER}</span>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROJECTS}</span>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROYECTOS}</span>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROJEKTER}</span>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROJECTS}</span>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROYECTOS}</span>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROJEKTER}</span>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROJECTS}</span>
-               <span className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>{PROJECTS_LIST_SCROLLING_TEXT_PROYECTOS}</span>
+            <motion.div className="projects-list__scrolling-text flex w-max" animate={animate} transition={scrollTransition}>
+               <div className="flex gap-2.5 pr-2.5">
+                  {PROJECTS_LIST_SCROLLING_TEXT_ITEMS.map((text, i) => (
+                     <span key={i} className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>
+                        {text}
+                     </span>
+                  ))}
+               </div>
+               <div className="flex gap-2.5 pr-2.5" aria-hidden="true">
+                  {PROJECTS_LIST_SCROLLING_TEXT_ITEMS.map((text, i) => (
+                     <span key={i} className={PROJECTS_LIST_SCROLLING_TEXT_CLASS}>
+                        {text}
+                     </span>
+                  ))}
+               </div>
             </motion.div>
             <motion.ul initial={initial} whileInView={whileInView} transition={listTransition} viewport={viewport} aria-label={PROJECTS_LIST_UL_ARIA_LABEL} className="projects-list__list flex flex-col gap-10 px-5" data-testid={PROJECTS_LIST_UL_TEST_ID}>
                {projects.map((project, index) => {
