@@ -10,6 +10,7 @@ services:
       - ./docker/database/init:/docker-entrypoint-initdb.d # Mount initialization scripts
       - ./docker/database/migrations:/migrations # Mount migration files
       - ./docker/database/seeds:/seeds # Mount seed files
+      - ./docker/database/scripts:/scripts # Mount migration runner scripts
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-dylan} -d ${DB_NAME:-portfolio_db-prod}"]
       interval: 5s
