@@ -245,3 +245,28 @@
    --color-status-error: var(--palette-status-error);
    --color-status-warning: var(--palette-status-warning);
 }
+
+/* Theme circular transition */
+@keyframes theme-reveal-from-corner {
+   from {
+      clip-path: circle(0% at 100% 0%);
+   }
+   to {
+      clip-path: circle(150% at 100% 0%);
+   }
+}
+
+::view-transition-old(root) {
+   animation: none;
+}
+
+::view-transition-new(root) {
+   animation: theme-reveal-from-corner 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   ::view-transition-old(root),
+   ::view-transition-new(root) {
+      animation: none;
+   }
+}
