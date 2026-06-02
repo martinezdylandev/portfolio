@@ -1,4 +1,4 @@
-CREATE TABLE projects (
+CREATE TABLE IF NOT EXISTS projects (
     project_id SERIAL PRIMARY KEY,
     project_name TEXT NOT NULL,
     project_logo_1 BYTEA,
