@@ -5,6 +5,7 @@ import { mockProjects, resetModes, setupLightMode } from "./test-utils/testUtils
 vi.mock("react-router", () => ({
    ...vi.importActual("react-router"),
    Link: vi.fn(),
+   useParams: vi.fn().mockReturnValue({ projectSlug: "test-project" }),
 }));
 
 describe("ProjectRelatedContainerProjects tests", () => {
