@@ -24,7 +24,19 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
    }, [theme]);
 
    const toggleTheme = () => {
-      setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+      const newTheme = theme === "light" ? "dark" : "light";
+
+      const applyTheme = () => {
+         document.documentElement.setAttribute("data-theme", newTheme);
+         localStorage.setItem("theme", newTheme);
+         setTheme(newTheme);
+      };
+
+      if (typeof document !== "undefined" && "startViewTransition" in document) {
+         document.startViewTransition(applyTheme);
+      } else {
+         applyTheme();
+      }
    };
 
    const contextValue: ThemeContextType = {
