@@ -20,38 +20,38 @@ export const useProjectResultsScrollAnimations = (): UseProjectResultsScrollAnim
 
    const driver = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
 
-   // 1st span
-   const fontSize1 = useTransform(driver, [0, 1], ["122px", "20px"]);
+   // 1st span — 7.5rem (step-13/display-lg) → 1.25rem (step-5/heading-xs)
+   const fontSize1 = useTransform(driver, [0, 1], ["7.5rem", "1.25rem"]);
    const blur1 = useTransform(driver, [0, 1], ["blur(0px)", "blur(2.5px)"]);
 
-   // 2nd span (starts at 0.2)
+   // 2nd span (starts at 0.2) — → 1.5rem (step-6/heading-sm)
    const secondProgress = useTransform(driver, [0, 0.2, 1], [0, 0, 1]);
-   const fontSize2 = useTransform(secondProgress, [0, 1], ["122px", "24px"]);
+   const fontSize2 = useTransform(secondProgress, [0, 1], ["7.5rem", "1.5rem"]);
    const blur2 = useTransform(secondProgress, [0, 1], ["blur(0px)", "blur(2.25px)"]);
 
-   // 3rd span (starts at 0.3)
+   // 3rd span (starts at 0.3) — → 1.875rem (step-7/heading)
    const thirdProgress = useTransform(driver, [0, 0.3, 1], [0, 0, 1]);
-   const fontSize3 = useTransform(thirdProgress, [0, 1], ["122px", "30px"]);
+   const fontSize3 = useTransform(thirdProgress, [0, 1], ["7.5rem", "1.875rem"]);
    const blur3 = useTransform(thirdProgress, [0, 1], ["blur(0px)", "blur(2px)"]);
 
-   // 4th span (starts at 0.4)
+   // 4th span (starts at 0.4) — → 2.25rem (step-8/heading-lg)
    const fourthProgress = useTransform(driver, [0, 0.4, 1], [0, 0, 1]);
-   const fontSize4 = useTransform(fourthProgress, [0, 1], ["122px", "36px"]);
+   const fontSize4 = useTransform(fourthProgress, [0, 1], ["7.5rem", "2.25rem"]);
    const blur4 = useTransform(fourthProgress, [0, 1], ["blur(0px)", "blur(1.75px)"]);
 
-   // 5th span (starts at 0.5)
+   // 5th span (starts at 0.5) — → 3rem (step-9/heading-xl)
    const fifthProgress = useTransform(driver, [0, 0.5, 1], [0, 0, 1]);
-   const fontSize5 = useTransform(fifthProgress, [0, 1], ["122px", "48px"]);
+   const fontSize5 = useTransform(fifthProgress, [0, 1], ["7.5rem", "3rem"]);
    const blur5 = useTransform(fifthProgress, [0, 1], ["blur(0px)", "blur(1.50px)"]);
 
-   // 6th span (starts at 0.6)
+   // 6th span (starts at 0.6) — → 3.75rem (step-10/display-sm)
    const sixthProgress = useTransform(driver, [0, 0.6, 1], [0, 0, 1]);
-   const fontSize6 = useTransform(sixthProgress, [0, 1], ["122px", "60px"]);
+   const fontSize6 = useTransform(sixthProgress, [0, 1], ["7.5rem", "3.75rem"]);
    const blur6 = useTransform(sixthProgress, [0, 1], ["blur(0px)", "blur(1.25px)"]);
 
-   // 7th span (starts at 0.7)
+   // 7th span (starts at 0.7) — → 6rem (step-12/display)
    const seventhProgress = useTransform(driver, [0, 0.7, 1], [0, 0, 1]);
-   const fontSize7 = useTransform(seventhProgress, [0, 1], ["122px", "92px"]);
+   const fontSize7 = useTransform(seventhProgress, [0, 1], ["7.5rem", "6rem"]);
    const blur7 = useTransform(seventhProgress, [0, 1], ["blur(0px)", "blur(1px)"]);
 
    const transforms: ProjectResultsScrollTransforms[] = [
