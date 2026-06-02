@@ -1,93 +1,36 @@
 #!/bin/bash
 
-# Portfolio Database Initialization script 
-# This script automates the database initialization process with smart seeding
+# Portfolio Database Initialization Script
+# Runs once when the PostgreSQL data volume is first created (docker-entrypoint-initdb.d).
+# For subsequent deploys, migrations are applied by deploy.sh via /scripts/migrate.sh.
 
-set -e
+set -Eeuo pipefail
 
 echo "Starting database initialization..."
 
 # Wait for PostgreSQL to be ready
 until pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"; do
-  echo "Waiting for PostgreSQL to be ready..."
-  sleep 2
+   echo "Waiting for PostgreSQL to be ready..."
+   sleep 2
 done
 
-echo "PostgreSQL is ready. Checking database state..."
+echo "PostgreSQL is ready."
 
-# Check if projects table exists by trying to query it
-TABLE_EXISTS=$(psql -t -c "SELECT 1 FROM projects LIMIT 1;" -U "$POSTGRES_USER" -d "$POSTGRES_DB" 2>/dev/null && echo "t" || echo "f")
+# Apply all migrations via the shared runner (creates schema_migrations tracking
+# table on the first call, then applies every *.sql file not yet recorded).
+bash /scripts/migrate.sh
 
-if [ "$TABLE_EXISTS" = "f" ]; then
-    echo "Projects table doesn't exist. Running full initialization..."
-    
-    # Run schema migration
-    echo "Running schema migration..."
-    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/001_initial_schema.sql
-    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/002_project_overview_media_type.sql
-    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/003_add_project_slug.sql
-    
-    # Run seed files
-    echo "Running seed files..."
-    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /seeds/001_real_projects.sql
-    
-    echo "Database initialization complete!"
+# Seed initial data if the projects table is empty
+ROW_COUNT=$(psql -t --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" \
+   -c "SELECT COUNT(*) FROM projects;" | tr -d '[:space:]')
+
+if [ "$ROW_COUNT" = "0" ]; then
+   echo "Projects table is empty. Running seed files..."
+   psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" \
+      -f /seeds/001_real_projects.sql
+   echo "Seeding complete."
 else
-    echo "Projects table exists. Checking if seeds need to be updated..."
-    
-     # Check if we have the expected seed projects (must match seeds exactly)
-    EXPECTED_PROJECTS=("Portfolio Platform: Full‑Stack Showcase" "Julieta Abdon: An Artistic Vision" "ABV: Design in Motion" "En Marte: From Another Planet" "ISSAS: Alla Italiana")
-    
-    NEEDS_UPDATE=false
-    MISSING_PROJECTS=()
-    
-    for project in "${EXPECTED_PROJECTS[@]}"; do
-        PROJECT_EXISTS=$(psql -t -c "SELECT EXISTS (SELECT 1 FROM projects WHERE project_name = '$project');" -U "$POSTGRES_USER" -d "$POSTGRES_DB" 2>/dev/null || echo "f")
-        
-        if [ "$PROJECT_EXISTS" = "f" ]; then
-            echo "Missing project: $project"
-            MISSING_PROJECTS+=("$project")
-            NEEDS_UPDATE=true
-        else
-            echo "Project exists: $project"
-        fi
-    done
-    
-    if [ "$NEEDS_UPDATE" = true ]; then
-        echo "Some seed projects are missing. Re-running seeds..."
-        echo "Missing projects: ${MISSING_PROJECTS[*]}"
-        
-        # Clear existing data and re-seed
-        echo "Clearing existing projects table..."
-        psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -c "DELETE FROM projects;"
-        
-        # Run seed files
-        echo "Running seed files..."
-        psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /seeds/001_real_projects.sql
-        
-        echo "Database re-seeded successfully!"
-        
-        # Verify all projects are now present
-        echo "Verifying seed data..."
-        for project in "${EXPECTED_PROJECTS[@]}"; do
-            PROJECT_EXISTS=$(psql -t -c "SELECT EXISTS (SELECT 1 FROM projects WHERE project_name = '$project');" -U "$POSTGRES_USER" -d "$POSTGRES_DB" 2>/dev/null || echo "f")
-            if [ "$PROJECT_EXISTS" = "t" ]; then
-                echo "✅ Verified: $project"
-            else
-                echo "❌ Still missing: $project"
-            fi
-        done
-    else
-        echo "All seed projects are present. Skipping initialization."
-        echo "Current projects in database:"
-        psql -t -c "SELECT project_id, project_name FROM projects ORDER BY project_id;" -U "$POSTGRES_USER" -d "$POSTGRES_DB" 2>/dev/null || echo "Could not retrieve projects"
-    fi
-
-    # Always run incremental migrations (they are idempotent)
-    echo "Running incremental migrations..."
-    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/002_project_overview_media_type.sql 2>/dev/null || true
-    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f /migrations/003_add_project_slug.sql 2>/dev/null || true
-    echo "Incremental migrations complete."
+   echo "Projects table already has ${ROW_COUNT} row(s). Skipping seed."
 fi
 
-echo "Database initialization check complete!"
+echo "Database initialization complete!"

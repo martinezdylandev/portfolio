@@ -83,6 +83,11 @@ deploy_production() {
     echo -e "${BLUE}🚀 Starting production containers...${NC}"
     docker compose --env-file .env.prod -f "${COMPOSE_FILE}" up -d
 
+    echo -e "${BLUE}🗄️  Running database migrations...${NC}"
+    docker compose --env-file .env.prod -f "${COMPOSE_FILE}" exec -T database-prod \
+        bash /scripts/migrate.sh
+    echo -e "${GREEN}✅ Migrations applied${NC}"
+
     echo -e "${BLUE}🧹 Cleaning up unused Docker images...${NC}"
     docker image prune -f
 
